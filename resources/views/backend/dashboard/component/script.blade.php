@@ -39,11 +39,13 @@
 <!-- Sparkline demo data  -->
 <script src="backend/js/demo/sparkline-demo.js"></script>
 
-@if (isset($config['js']) && is_array($config['js']))
-    @foreach ($config['js'] as $key => $val)
-        {!! '<script src="' . $val . '"></script>' !!}
-    @endforeach
-@endif
+<script src="backend/js/plugins/switchery/switchery.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="backend/library/library.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="backend/library/location.js"></script>
+<script src="backend/plugins/ckfinder_2/ckfinder.js"></script>
+<script src="backend/library/finder.js"></script>
 
 <script>
     $(document).ready(function() {

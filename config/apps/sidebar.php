@@ -8,11 +8,26 @@ return [
             'subModule' => [
                 [
                     'title' => 'QL Khách Hàng',
-                    'route' => 'user/customer/index'
+                    'route' => 'admin/customer/index'
                 ],
                 [
                     'title' => 'QL Hướng Dẫn Viên',
-                    'route' => 'user/guide/index'
+                    'route' => 'admin/guide/index'
+                ]
+            ]
+        ],
+        [
+            'title' => 'QL Tours',
+            'icon' => 'fa fa-user',
+            'name' => ['tour'],
+            'subModule' => [
+                [
+                    'title' => 'QL Tours',
+                    'route' => 'admin/tour/index'
+                ],
+                [
+                    'title' => 'QL Loại Tour',
+                    'route' => 'admin/tour-category/index'
                 ]
             ]
         ],

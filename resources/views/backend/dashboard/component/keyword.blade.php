@@ -1,4 +1,4 @@
-<div class="uk-search uk-flex uk-flex-middle">
+<div class="uk-search uk-flex uk-flex-middle mr10">
     <div class="input-group">
         <input type="text" name="keyword" value="{{ request('keyword') ?: old('keyword') }}"
             placeholder="{{ config('apps.setup.searchInput') }}" class="form-control">

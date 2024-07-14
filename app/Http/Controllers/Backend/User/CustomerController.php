@@ -8,7 +8,7 @@ use App\Repositories\Interfaces\UserRepositoryInterface as UserRepository;
 use \Illuminate\Http\Request;
 use App\Services\Interfaces\UserServiceInterface as UserService;
 
-class GuideController extends Controller
+class CustomerController extends Controller
 {
     protected $userService;
     protected $userRepository;
@@ -29,13 +29,13 @@ class GuideController extends Controller
 
     public function index(Request $request)
     {
-        $role = 'admin';
+        $role = 'user';
         $users = $this->userService->paginate($request, $role);
         $config['model'] = 'User';
-        $config['seo'] = config('apps.messages.guide');
+        $config['seo'] = config('apps.messages.customer');
 
         // dd($users);
-        return view('backend.user.guide.index', compact('users', 'config'));
+        return view('backend.user.customer.index', compact('users', 'config'));
     }
 
 
@@ -43,32 +43,33 @@ class GuideController extends Controller
     {
         $user = $this->userRepository->findById($id);
         $provinces = $this->provinceRepository->all();
-        $config['seo'] = config('apps.messages.guide');
-        return view('backend.user.guide.update', compact('user', 'provinces', 'config'));
+        $config['seo'] = config('apps.messages.customer');
+        return view('backend.user.customer.update', compact('user', 'provinces', 'config'));
     }
 
 
     public function update($id, Request $request)
     {
         if ($this->userService->update($id, $request)) {
-            return redirect()->route('guide.index')->with('success', 'Cập nhật bản ghi thành công');
+            return redirect()->route('customer.index')->with('success', 'Cập nhật bản ghi thành công');
         }
-        return redirect()->route('guide.index')->with('error', 'Cập nhật bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('customer.index')->with('error', 'Cập nhật bản ghi không thành công. Hãy thử lại');
     }
 
     public function delete($id)
     {
         // $this->authorize('modules', 'user.delete');
-        $config['seo'] = config('apps.messages.guide');
+        $config['seo'] = config('apps.messages.customer');
         $user = $this->userRepository->findById($id);
-        return view('backend.user.guide.delete', compact('user', 'config', ));
+        return view('backend.user.customer.delete', compact('user', 'config', ));
     }
 
     public function destroy($id)
     {
         if ($this->userService->destroy($id)) {
-            return redirect()->route('guide.index')->with('success', 'Xóa bản ghi thành công');
+            return redirect()->route('customer.index')->with('success', 'Xóa bản ghi thành công');
         }
-        return redirect()->route('guide.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('customer.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
     }
+
 }

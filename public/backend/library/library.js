@@ -176,7 +176,7 @@
         $('input[name=name]').on('keyup', function () {
             let input = $(this)
             let value = PMD.removeUtf8(input.val())
-            $('.inputCanonical').val(value)
+            $('.inputSlug').val(value)
         });
     }
 

@@ -11,11 +11,9 @@
 <link href="backend/plugins/jquery-ui.css" rel="stylesheet">
 
 
-@if (isset($config['css']) && is_array($config['css']))
-    @foreach ($config['css'] as $key => $val)
-        {!! '<link rel="stylesheet" href="' . $val . '">' !!}
-    @endforeach
-@endif
+<link href="backend/css/plugins/switchery/switchery.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.cs" rel="stylesheet">
 
 <link href="backend/css/style.css" rel="stylesheet">
 <link href="backend/css/customize.css" rel="stylesheet">
