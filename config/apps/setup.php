@@ -6,8 +6,8 @@ return [
         '2' => 'Kích hoạt',
     ],
 
-    
 
+    
     'search' => 'Tìm kiếm',
     'searchInput' => 'Nhập thông tin tìm kiếm..',
     'perpage' => 'bản ghi',

@@ -51,4 +51,16 @@ return [
             'title' => 'Xóa loại tour'
         ]
     ],
+    'service' => [
+        'index' => [
+            'title' => 'Quản lý service',
+            'table' => 'Danh sách service'
+        ],
+        'edit' => [
+            'title' => 'Cập nhật service'
+        ],
+        'delete' => [
+            'title' => 'Xóa service'
+        ]
+    ],
 ];

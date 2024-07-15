@@ -18,6 +18,9 @@ class AppServiceProvider extends ServiceProvider
         'App\Services\Interfaces\TourCategoryServiceInterface' => 'App\Services\TourCategoryService',
         'App\Repositories\Interfaces\TourCategoryRepositoryInterface' => 'App\Repositories\TourCategoryRepository',
 
+        'App\Services\Interfaces\ServiceServiceInterface' => 'App\Services\ServiceService',
+        'App\Repositories\Interfaces\ServiceRepositoryInterface' => 'App\Repositories\ServiceRepository',
+
         //Việc đăng ký các interface và implementation trong container của Laravel cho phép framework này biết cách tạo ra các instance của các class khi cần thiết.
     ];
 

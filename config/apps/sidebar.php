@@ -32,6 +32,17 @@ return [
             ]
         ],
         [
+            'title' => 'QL Service',
+            'icon' => 'fa fa-service',
+            'name' => ['tour', 'service'],
+            'subModule' => [
+                [
+                    'title' => 'QL Service',
+                    'route' => 'admin/service/index'
+                ],
+            ]
+        ],
+        [
             'title' => 'Cấu Hình Chung',
             'icon' => 'fa fa-file',
             'name' => ['language', 'generate', 'widget'],

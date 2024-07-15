@@ -13,6 +13,7 @@
             @include('backend.dashboard.component.nav')
 
             @yield('adminContent')
+            
             @include('backend.dashboard.component.footer')
         </div>
     </div>

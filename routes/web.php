@@ -4,6 +4,8 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
 use App\Http\Controllers\Backend\User\CustomerController;
 use App\Http\Controllers\Backend\User\GuideController;
+use App\Http\Controllers\Backend\ServiceController;
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -60,6 +62,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('{id}/delete', [TourCategoryController::class, 'delete'])->where(['id' => '[0-9]+'])->name('tour.category.delete');
         Route::delete('{id}/destroy', [TourCategoryController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('tour.category.destroy');
     });
+
+    Route::group(['prefix' => 'service'], function () {
+        Route::get('index', [ServiceController::class, 'index'])->name('service.index');
+        Route::get('{id}/edit', [CustomerController::class, 'edit'])->where(['id' => '[0-9]+'])->name('customer.edit');
+        Route::post('{id}/update', [CustomerController::class, 'update'])->where(['id' => '[0-9]+'])->name('customer.update');
+        Route::get('{id}/delete', [CustomerController::class, 'delete'])->where(['id' => '[0-9]+'])->name('customer.delete');
+        Route::delete('{id}/destroy', [CustomerController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('customer.destroy');
+    });
+
 
 });
 
