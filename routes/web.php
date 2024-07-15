@@ -26,6 +26,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'auth'], function () {
+        Route::get('login', function () {
+            echo "Login";
+        });
+});
+
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
