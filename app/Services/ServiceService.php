@@ -35,7 +35,7 @@ class ServiceService extends BaseService implements ServiceServiceInterface
             $this->paginateSelect(),
             $condition,
             $perPage,
-            ['path' => '/service/index'],
+            ['path' => 'admin/service/index'],
         );
 
         return $users;

@@ -35,7 +35,7 @@ class TourCategoryService extends BaseService implements TourCategoryServiceInte
             $this->paginateSelect(),
             $condition,
             $perPage,
-            ['path' => 'tour-category/index'],
+            ['path' => 'admin/tour-category/index'],
         );
 
         return $users;

@@ -22,7 +22,6 @@
                     <td>
                         {{ $item->description }}
                     </td>
-                    
                     <td class="text-center">
                         <a href="{{ route('tour.category.edit', $item->id) }}" class="btn btn-success"><i
                                 class="fa fa-edit"></i></a>

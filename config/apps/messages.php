@@ -53,14 +53,17 @@ return [
     ],
     'service' => [
         'index' => [
-            'title' => 'Quản lý service',
-            'table' => 'Danh sách service'
+            'title' => 'Quản lý dịch vụ',
+            'table' => 'Danh sách dịch vụ'
+        ],
+        'create' => [
+            'title' => 'Thêm mới dịch vụ',
         ],
         'edit' => [
-            'title' => 'Cập nhật service'
+            'title' => 'Cập nhật dịch vụ'
         ],
         'delete' => [
-            'title' => 'Xóa service'
+            'title' => 'Xóa dịch vụ'
         ]
     ],
 ];

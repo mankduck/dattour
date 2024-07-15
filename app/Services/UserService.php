@@ -48,6 +48,7 @@ class UserService extends BaseService implements UserServiceInterface
         try {
 
             $payload = $request->except(['_token', 'send']);
+            $name = $request->input('name');
             if ($payload['birthday'] != null) {
                 $payload['birthday'] = $this->convertBirthdayDate($payload['birthday']);
             }
