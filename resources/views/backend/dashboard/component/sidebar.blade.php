@@ -1,5 +1,5 @@
 @php
-    $segment = request()->segment(1);
+    $segment = request()->segment(2);
     // dd($segment)
 @endphp
 <nav class="navbar-default navbar-static-side" role="navigation">

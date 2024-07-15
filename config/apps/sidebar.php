@@ -4,7 +4,7 @@ return [
         [
             'title' => 'QL Tài Khoản',
             'icon' => 'fa fa-user',
-            'name' => ['user'],
+            'name' => ['customer', 'guide'],
             'subModule' => [
                 [
                     'title' => 'QL Khách Hàng',
@@ -19,7 +19,7 @@ return [
         [
             'title' => 'QL Tours',
             'icon' => 'fa fa-user',
-            'name' => ['tour'],
+            'name' => ['tour', 'tour-category'],
             'subModule' => [
                 [
                     'title' => 'QL Tours',
