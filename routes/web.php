@@ -24,10 +24,12 @@ use App\Http\Controllers\Ajax\LocationController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/', function () {
-    return view('welcome');
+    return view('fontend.prices.index');
 });
-
 Route::group(['prefix' => 'auth'], function () {
         Route::get('login', function () {
             echo "Login";
