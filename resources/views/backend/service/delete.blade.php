@@ -2,7 +2,7 @@
 @section('adminContent')
     @include('backend.dashboard.component.breadcrumb', ['title' => $config['seo']['delete']['title']])
 
-    <form action="{{ route('tour.category.destroy', $tourCategory->id) }}" method="post" class="box">
+    <form action="{{ route('service.destroy', $service->id) }}" method="post" class="box">
         @csrf
         @method('DELETE')
         <div class="wrapper wrapper-content animated fadeInRight">
@@ -12,7 +12,7 @@
                         <div class="panel-title">Thông tin chung</div>
                         <div class="panel-description">
                             <p>Bạn đang muốn xóa loại tour có tên là: <span
-                                    class="text-danger">{{ $tourCategory->name }}</span></p>
+                                    class="text-danger">{{ $service->name }}</span></p>
                             <p>Lưu ý: Không thể khôi phục sau khi xóa. Hãy chắc chắn bạn muốn thực hiện chức
                                 năng này</p>
                         </div>
@@ -27,7 +27,7 @@
                                         <label for="" class="control-label text-left">Tên loại tour <span
                                                 class="text-danger">(*)</span></label>
                                         <input type="text" name="name"
-                                            value="{{ old('name', $tourCategory->name ?? '') }}" class="form-control"
+                                            value="{{ old('name', $service->name ?? '') }}" class="form-control"
                                             placeholder="" autocomplete="off" readonly>
                                     </div>
                                 </div>

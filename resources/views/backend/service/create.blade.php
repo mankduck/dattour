@@ -10,7 +10,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('tour.category.store') }}" method="post" class="box">
+    <form action="{{ route('service.store') }}" method="post" class="box">
         @csrf
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
@@ -29,27 +29,21 @@
                             <div class="row mb15">
                                 <div class="col-lg-6">
                                     <div class="form-row mb20">
-                                        <label for="" class="control-label text-left">Tên Loại Tour <span
+                                        <label for="" class="control-label text-left">Tên Loại Dịch Vụ <span
                                                 class="text-danger">(*)</span></label>
                                         <input type="text" name="name" value="{{ old('name') }}"
                                             class="form-control" placeholder="" autocomplete="off">
                                     </div>
                                     <div class="form-row">
-                                        <label for="" class="control-label text-left">Đường Dẫn</label>
-                                        <input type="text" name="slug" value="{{ old('slug') }}"
-                                            class="form-control inputSlug" placeholder="" autocomplete="off">
+                                        <label for="" class="control-label text-left">Mô Tả</label>
+                                        <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="3" autocomplete="off">{{ old('description') }}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-row mb20">
-                                        <label for="" class="control-label text-left">Chọn Tình Trạng <span
-                                                class="text-danger">(*)</span></label>
-                                        <select name="publish" class="form-control setupSelect2" id="">
-                                            @foreach (config('apps.setup.publish') as $key => $val)
-                                                <option {{ $key == old('publish') }} value="{{ $key }}">
-                                                    {{ $val }}</option>
-                                            @endforeach
-                                        </select>
+                                        <label for="" class="control-label text-left">Biểu Tượng</label>
+                                        <input type="text" name="icon" value="{{ old('icon') }}"
+                                            class="form-control" placeholder="" autocomplete="off">
                                     </div>
                                     <div class="form-row">
                                         <span class="image img-cover image-target"><img
