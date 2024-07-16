@@ -26,18 +26,18 @@ class UserService extends BaseService implements UserServiceInterface
 
 
 
-    public function paginate($request, $role)
+    public function paginate($request)
     {
         $condition['keyword'] = addslashes($request->input('keyword'));
         $condition['publish'] = $request->integer('publish');
-        $condition['where'] = [['role', '=', $role]];
         $perPage = ($request->integer('perpage') > 0) ? $request->integer('perpage') : 9;
         $users = $this->userRepository->pagination(
             $this->paginateSelect(),
             $condition,
             $perPage,
-            ['path' => 'user/guide/index'],
+            ['path' => 'admin/user/index'],
         );
+
 
         return $users;
     }
@@ -89,7 +89,6 @@ class UserService extends BaseService implements UserServiceInterface
             'address',
             'name',
             'publish',
-            'role'
         ];
     }
 
