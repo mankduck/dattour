@@ -8,7 +8,7 @@ use App\Repositories\Interfaces\UserRepositoryInterface as UserRepository;
 use \Illuminate\Http\Request;
 use App\Services\Interfaces\UserServiceInterface as UserService;
 
-class CustomerController extends Controller
+class UserController extends Controller
 {
     protected $userService;
     protected $userRepository;
@@ -29,14 +29,33 @@ class CustomerController extends Controller
 
     public function index(Request $request)
     {
-        $role = 'user';
-        $users = $this->userService->paginate($request, $role);
+        $users = $this->userService->paginate($request);
         $config['model'] = 'User';
-        $config['seo'] = config('apps.messages.customer');
+        $config['seo'] = config('apps.messages.user');
 
         // dd($users);
         return view('backend.user.customer.index', compact('users', 'config'));
     }
+
+
+
+    public function create()
+    {
+        $provinces = $this->provinceRepository->all();
+        $config['model'] = 'User';
+        $config['seo'] = config('apps.messages.user');
+        return view('backend.user.customer.create', compact('config', 'provinces'));
+    }
+
+
+    // public function store(StoreTourCategoryRequest $request)
+    // {
+    //     if ($this->tourCategoryService->create($request)) {
+    //         return redirect()->route('tour.category.index')->with('success', 'Thêm mới bản ghi thành công');
+    //     }
+    //     return redirect()->route('tour.category.index')->with('error', 'Thêm mới bản ghi không thành công. Hãy thử lại');
+    // }
+
 
 
     public function edit($id)

@@ -12,10 +12,13 @@ return [
             'title' => 'Xóa hướng dẫn viên'
         ]
     ],
-    'customer' => [
+    'user' => [
         'index' => [
             'title' => 'Quản lý khách hàng',
             'table' => 'Danh sách khách hàng'
+        ],
+        'create' => [
+            'title' => 'Thêm mới khách hàng',
         ],
         'edit' => [
             'title' => 'Cập nhật khách hàng'

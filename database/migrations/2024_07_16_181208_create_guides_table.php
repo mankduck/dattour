@@ -10,24 +10,16 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('guides', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('phone', 20)->nullable();
-            $table->string('province_id', 10)->nullable();
-            $table->string('district_id', 10)->nullable();
-            $table->string('ward_id', 10)->nullable();
-            $table->string('address')->nullable();
+            $table->string('phone', 20);
             $table->dateTime('birthday')->nullable();
             $table->string('image')->nullable();
-            $table->string('vip_member')->default(1);
             $table->string('email')->unique();
+            $table->text('description')->nullable();
             $table->tinyInteger('publish')->default(1);
-            $table->bigInteger('point')->default(0);
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('email_verification_token')->nullable();
             $table->string('password');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -37,6 +29,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('guides');
     }
 };

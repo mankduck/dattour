@@ -1,20 +1,26 @@
 <?php
 return [
     'module' => [
+        // [
+        //     'title' => 'QL Tài Khoản',
+        //     'icon' => 'fa fa-user',
+        //     'name' => ['customer', 'guide'],
+        //     'subModule' => [
+        //         [
+        //             'title' => 'QL Khách Hàng',
+        //             'route' => 'admin/customer/index'
+        //         ],
+        //         [
+        //             'title' => 'QL Hướng Dẫn Viên',
+        //             'route' => 'admin/guide/index'
+        //         ]
+        //     ]
+        // ],
         [
-            'title' => 'QL Tài Khoản',
+            'title' => 'QL Khách Hàng',
             'icon' => 'fa fa-user',
-            'name' => ['customer', 'guide'],
-            'subModule' => [
-                [
-                    'title' => 'QL Khách Hàng',
-                    'route' => 'admin/customer/index'
-                ],
-                [
-                    'title' => 'QL Hướng Dẫn Viên',
-                    'route' => 'admin/guide/index'
-                ]
-            ]
+            'name' => ['user'],
+            'route' => 'admin/user/index',
         ],
         [
             'title' => 'QL Tours',

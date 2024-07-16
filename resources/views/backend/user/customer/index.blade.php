@@ -11,8 +11,8 @@
                         @include('backend.dashboard.component.toolbox', ['model' => 'User'])
                     </div>
                     <div class="ibox-content">
-                        @include('backend.user.guide.component.filter')
-                        @include('backend.user.guide.component.table')
+                        @include('backend.user.customer.component.filter')
+                        @include('backend.user.customer.component.table')
                     </div>
                 </div>
             </div>

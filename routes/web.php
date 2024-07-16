@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\User\CustomerController;
 use App\Http\Controllers\Backend\User\GuideController;
 use App\Http\Controllers\Backend\ServiceController;
 
+use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,20 +32,22 @@ Route::get('/', function () {
     return view('fontend.prices.index');
 });
 Route::group(['prefix' => 'auth'], function () {
-        Route::get('login', function () {
-            echo "Login";
-        });
+    Route::get('login', function () {
+        echo "Login";
+    });
 });
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-    Route::group(['prefix' => 'guide'], function () {
-        Route::get('index', [GuideController::class, 'index'])->name('guide.index');
-        Route::get('{id}/edit', [GuideController::class, 'edit'])->where(['id' => '[0-9]+'])->name('guide.edit');
-        Route::post('{id}/update', [GuideController::class, 'update'])->where(['id' => '[0-9]+'])->name('guide.update');
-        Route::get('{id}/delete', [GuideController::class, 'delete'])->where(['id' => '[0-9]+'])->name('guide.delete');
-        Route::delete('{id}/destroy', [GuideController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('guide.destroy');
+    Route::group(['prefix' => 'user'], function () {
+        Route::get('index', [UserController::class, 'index'])->name('user.index');
+        Route::get('create', [UserController::class, 'create'])->name('user.create');
+        Route::post('store', [UserController::class, 'store'])->name('user.store');
+        Route::get('{id}/edit', [UserController::class, 'edit'])->where(['id' => '[0-9]+'])->name('user.edit');
+        Route::post('{id}/update', [UserController::class, 'update'])->where(['id' => '[0-9]+'])->name('user.update');
+        Route::get('{id}/delete', [UserController::class, 'delete'])->where(['id' => '[0-9]+'])->name('user.delete');
+        Route::delete('{id}/destroy', [UserController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('user.destroy');
     });
 
     Route::group(['prefix' => 'customer'], function () {

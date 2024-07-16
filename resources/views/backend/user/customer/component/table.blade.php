@@ -8,7 +8,7 @@
             <th>Email</th>
             <th>SDT</th>
             <th>Địa chỉ</th>
-            <th class="text-center">Nhóm TV</th>
+            <th class="text-center">Vip</th>
             <th class="text-center">Trạng thái</th>
             <th class="text-center">Tùy chọn</th>
         </tr>
@@ -33,7 +33,7 @@
                         {{ $user->address }}
                     </td>
                     <td class="text-center">
-                        {{ ucfirst($user->role) }}
+                        {{ $user->vip_member }}
                     </td>
                     <td class="text-center js-switch-{{ $user->id }}">
                         <input type="checkbox" value="{{ $user->publish }}" class="js-switch status"
@@ -42,9 +42,9 @@
                     </td>
 
                     <td class="text-center">
-                        <a href="{{ route('guide.edit', $user->id) }}" class="btn btn-success"><i
+                        <a href="{{ route('user.edit', $user->id) }}" class="btn btn-success"><i
                                 class="fa fa-edit"></i></a>
-                        <a href="{{ route('guide.delete', $user->id) }}" class="btn btn-danger"><i
+                        <a href="{{ route('user.delete', $user->id) }}" class="btn btn-danger"><i
                                 class="fa fa-trash"></i></a>
                     </td>
                 </tr>
