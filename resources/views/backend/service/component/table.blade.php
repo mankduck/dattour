@@ -5,7 +5,9 @@
                 <input type="checkbox" value="" id="checkAll" class="input-checkbox">
             </th>
             <th>Tên</th>
+            <th>Biểu tượng</th>
             <th>Mô tả</th>
+            <th>Hình ảnh</th>
             <th class="text-center">Tùy chọn </th>
         </tr>
     </thead>
@@ -19,13 +21,23 @@
                     <td>
                         {{ $item->name }}
                     </td>
+
+                    <td>
+                        <i class="{{ $item->icon }}"></i>
+                    </td>
+
                     <td>
                         {{ $item->description }}
                     </td>
+
+                    <td>
+                        <img src="{{ $item->image }}" width="50px" height="50px" alt="">
+                    </td>
+
                     <td class="text-center">
-                        <a href="{{ route('tour.category.edit', $item->id) }}" class="btn btn-success"><i
+                        <a href="{{ route('service.edit', $item->id) }}" class="btn btn-success"><i
                                 class="fa fa-edit"></i></a>
-                        <a href="{{ route('tour.category.delete', $item->id) }}" class="btn btn-danger"><i
+                        <a href="{{ route('service.delete', $item->id) }}" class="btn btn-danger"><i
                                 class="fa fa-trash"></i></a>
                     </td>
                 </tr>

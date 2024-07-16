@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Service\StoreServiceCategoryRequest;
-use App\Http\Requests\Service\UpdateSeviceCategoryRequest;
+use App\Http\Requests\Service\StoreServiceRequest;
+use App\Http\Requests\Service\UpdateSeviceRequest;
 use App\Repositories\Interfaces\ServiceRepositoryInterface as ServiceRepository;
 use App\Services\Interfaces\ServiceServiceInterface as ServiceService;
 use Illuminate\Http\Request;
@@ -31,52 +31,53 @@ class ServiceController extends Controller
 
     public function create()
     {
-        $config['model'] = 'TourCategory';
-        $config['seo'] = config('apps.messages.tourCategory');
-        return view('backend.tour.category.create', compact('config'));
+        $config['model'] = 'Service';
+        $config['seo'] = config('apps.messages.service');
+        return view('backend.service.create', compact('config'));
     }
 
 
-    public function store(StoreTourCategoryRequest $request)
+    public function store(StoreServiceRequest $request)
     {
-        if ($this->tourCategoryService->create($request)) {
-            return redirect()->route('tour.category.index')->with('success', 'Thêm mới bản ghi thành công');
+        if ($this->serviceService->create($request)) {
+            return redirect()->route('service.index')->with('success', 'Thêm mới bản ghi thành công');
         }
-        return redirect()->route('tour.category.index')->with('error', 'Thêm mới bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('service.index')->with('error', 'Thêm mới bản ghi không thành công. Hãy thử lại');
     }
 
 
     public function edit($id)
     {
-        $config['model'] = 'TourCategory';
-        $config['seo'] = config('apps.messages.tourCategory');
-        $tourCategory = $this->tourCategoryRepository->findById($id);
-        return view('backend.tour.category.edit', compact('tourCategory', 'config'));
+        $config['model'] = 'Service';
+        $config['seo'] = config('apps.messages.service');
+        $service = $this->serviceRepository->findById($id);
+        
+        return view('backend.service.edit', compact('service', 'config'));
     }
 
-    public function update(UpdateTourCategoryRequest $request, $id)
+    public function update(UpdateSeviceRequest $request, $id)
     {
-        if ($this->tourCategoryService->update($id, $request)) {
-            return redirect()->route('tour.category.index')->with('success', 'Cập nhật bản ghi thành công');
+        if ($this->serviceService->update($id, $request)) {
+            return redirect()->route('service.index')->with('success', 'Cập nhật bản ghi thành công');
         }
-        return redirect()->route('tour.category.index')->with('error', 'Cập nhật bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('service.index')->with('error', 'Cập nhật bản ghi không thành công. Hãy thử lại');
     }
 
 
     public function delete($id)
     {
         // $this->authorize('modules', 'user.delete');
-        $config['seo'] = config('apps.messages.tourCategory');
-        $tourCategory = $this->tourCategoryRepository->findById($id);
-        return view('backend.tour.category.delete', compact('tourCategory', 'config', ));
+        $config['seo'] = config('apps.messages.service');
+        $service = $this->serviceRepository->findById($id);
+        return view('backend.service.delete', compact('service', 'config', ));
     }
 
     public function destroy($id)
     {
-        if ($this->tourCategoryService->destroy($id)) {
-            return redirect()->route('tour.category.index')->with('success', 'Xóa bản ghi thành công');
+        if ($this->serviceService->destroy($id)) {
+            return redirect()->route('service.index')->with('success', 'Xóa bản ghi thành công');
         }
-        return redirect()->route('tour.category.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('service.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
     }
 
 }

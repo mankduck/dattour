@@ -65,12 +65,13 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::group(['prefix' => 'service'], function () {
         Route::get('index', [ServiceController::class, 'index'])->name('service.index');
-        Route::get('{id}/edit', [CustomerController::class, 'edit'])->where(['id' => '[0-9]+'])->name('customer.edit');
-        Route::post('{id}/update', [CustomerController::class, 'update'])->where(['id' => '[0-9]+'])->name('customer.update');
-        Route::get('{id}/delete', [CustomerController::class, 'delete'])->where(['id' => '[0-9]+'])->name('customer.delete');
-        Route::delete('{id}/destroy', [CustomerController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('customer.destroy');
+        Route::get('create', [ServiceController::class, 'create'])->name('service.create');
+        Route::post('store', [ServiceController::class, 'store'])->name('service.store');
+        Route::get('{id}/edit', [ServiceController::class, 'edit'])->where(['id' => '[0-9]+'])->name('service.edit');
+        Route::post('{id}/update', [ServiceController::class, 'update'])->where(['id' => '[0-9]+'])->name('service.update');
+        Route::get('{id}/delete', [ServiceController::class, 'delete'])->where(['id' => '[0-9]+'])->name('service.delete');
+        Route::delete('{id}/destroy', [ServiceController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('service.destroy');
     });
-
 
 });
 

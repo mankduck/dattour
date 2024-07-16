@@ -41,16 +41,31 @@ class ServiceService extends BaseService implements ServiceServiceInterface
         return $users;
     }
 
+    public function create($request)
+    {
+        DB::beginTransaction();
+        try {
+            $payload = $request->except(['_token', 'send']);
+            //Except nhận một mảng các khóa muốn loại bỏ khỏi dữ liệu yêu cầu, ở đây là _token và send
+            $tour = $this->serviceRepository->create($payload);
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // Log::error($e->getMessage());
+            echo $e->getMessage();
+            die();
+            return false;
+        }
+    }
+
     public function update($id, $request)
     {
         DB::beginTransaction();
         try {
 
             $payload = $request->except(['_token', 'send']);
-            if ($payload['birthday'] != null) {
-                $payload['birthday'] = $this->convertBirthdayDate($payload['birthday']);
-            }
-            $user = $this->serviceRepository->update($id, $payload);
+            $service = $this->serviceRepository->update($id, $payload);
             DB::commit();
             return true;
         } catch (\Exception $e) {
@@ -85,6 +100,7 @@ class ServiceService extends BaseService implements ServiceServiceInterface
             'name',
             'icon',
             'description',
+            'image',
         ];
     }
 
