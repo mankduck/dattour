@@ -56,15 +56,20 @@ class BaseRepository implements BaseRepositoryInterface
     public function create(array $payload = [])
     {
         $model = $this->model->create($payload);
-        return $model->fresh();
+        return $model->fresh();         //fresh(): Gọi để lấy lại bản ghi đã được lưu trong cơ sở dữ liệu với tất cả các thay đổi mới nhất
+        // /Đảm bảo rằng bạn đang làm việc với bản ghi đã được đồng bộ với cơ sở dữ liệu.
     }
 
 
     public function update(int $id = 0, array $payload = [])
     {
-        $model = $this->findById($id);
+        $model = $this->findById($id);          //Tìm và lấy bản ghi theo id
         $model->fill($payload);
+
+        //Điền các giá trị từ mảng $payload vào model. Các trường trong $payload sẽ được ánh xạ vào các thuộc tính của model.
+
         $model->save();
+        //Lưu các thay đổi đã được điền từ fill() vào cơ sở dữ liệu
         return $model;
     }
 
@@ -100,6 +105,10 @@ class BaseRepository implements BaseRepositoryInterface
     ) {
         return $this->model->select($column)->with($relation)->findOrFail($modelId);
         //Phương thức findOrFail sẽ tìm kiếm một bản ghi với $modelId cung cấp. Nếu không tìm thấy, nó sẽ ném ra một ngoại lệ ModelNotFoundException
+
+        //Lỗi ModelNotFoundException trong Laravel xuất hiện khi hệ thống không tìm thấy bản ghi tương ứng với điều kiện tìm kiếm, 
+        //thường là khi bạn sử dụng các phương thức như findOrFail($id) và find($id) để tìm một bản ghi với id cụ thể nhưng không có bản ghi nào 
+        //khớp với điều kiện đó trong cơ sở dữ liệu.
     }
 
     public function findByCondition(
@@ -127,9 +136,9 @@ class BaseRepository implements BaseRepositoryInterface
         return ($flag == false) ? $query->first() : $query->get();
     }
 
-    public function createPivot($model, array $payload = [], string $relation = '')
+    public function createPivot($model, array $payload = [], string $relation = '')         //Tạo một bản ghi pivot mới trong mối quan hệ n-n (many-to-many) trong Larave
     {
-        return $model->{$relation}()->attach($model->id, $payload);
+        return $model->{$relation}()->attach($model->id, $payload);         //Phương thức attach được sử dụng để tạo một bản ghi mới trong bảng pivot
     }
 
 
