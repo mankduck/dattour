@@ -74,9 +74,9 @@ class TourCategoryController extends Controller
     public function destroy($id)
     {
         if ($this->tourCategoryService->destroy($id)) {
-            return redirect()->route('tour.category.index')->with('success', 'Xóa bản ghi thành công');
+            return redirect()->route('guide.index')->with('success', 'Xóa bản ghi thành công');
         }
-        return redirect()->route('tour.category.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('guide.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
     }
 
 }

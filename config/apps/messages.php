@@ -5,6 +5,9 @@ return [
             'title' => 'Quản lý hướng dẫn viên',
             'table' => 'Danh sách hướng dẫn viên'
         ],
+        'create' => [
+            'title' => 'Thêm mới hướng dẫn viên',
+        ],
         'edit' => [
             'title' => 'Cập nhật hướng dẫn viên'
         ],
