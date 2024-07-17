@@ -4,10 +4,12 @@
             <th>
                 <input type="checkbox" value="" id="checkAll" class="input-checkbox">
             </th>
+            <th>Hình ảnh</th>
             <th>Họ và tên</th>
             <th>Email</th>
             <th>SDT</th>
             <th>Địa chỉ</th>
+            <th class="text-center">Điểm</th>
             <th class="text-center">Vip</th>
             <th class="text-center">Trạng thái</th>
             <th class="text-center">Tùy chọn</th>
@@ -21,6 +23,9 @@
                         <input type="checkbox" value="{{ $user->id }}" class="input-checkbox checkBoxItem">
                     </td>
                     <td>
+                        <img src="{{ $user->image }}" width="50px" height="50px" alt="">
+                    </td>
+                    <td>
                         {{ $user->name }}
                     </td>
                     <td>
@@ -31,6 +36,10 @@
                     </td>
                     <td>
                         {{ $user->address }}
+                    </td>
+                    <td class="text-center">
+                        {{ ucfirst($user->role) }}
+                        {{ $user->point }}
                     </td>
                     <td class="text-center">
                         {{ $user->vip_member }}

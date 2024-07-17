@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Backend\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
 use App\Repositories\Interfaces\ProvinceRepositoryInterface as ProvinceRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface as UserRepository;
 use \Illuminate\Http\Request;
@@ -29,7 +31,8 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
-        $users = $this->userService->paginate($request);
+        $role = 'user';
+        $users = $this->userService->paginate($request, $role);
         $config['model'] = 'User';
         $config['seo'] = config('apps.messages.user');
 
@@ -48,13 +51,13 @@ class UserController extends Controller
     }
 
 
-    // public function store(StoreTourCategoryRequest $request)
-    // {
-    //     if ($this->tourCategoryService->create($request)) {
-    //         return redirect()->route('tour.category.index')->with('success', 'Thêm mới bản ghi thành công');
-    //     }
-    //     return redirect()->route('tour.category.index')->with('error', 'Thêm mới bản ghi không thành công. Hãy thử lại');
-    // }
+    public function store(StoreUserRequest $request)
+    {
+        if ($this->userService->create($request)) {
+            return redirect()->route('user.index')->with('success', 'Thêm mới bản ghi thành công');
+        }
+        return redirect()->route('backend.user.customer.index')->with('error', 'Thêm mới bản ghi không thành công. Hãy thử lại');
+    }
 
 
 
@@ -62,23 +65,23 @@ class UserController extends Controller
     {
         $user = $this->userRepository->findById($id);
         $provinces = $this->provinceRepository->all();
-        $config['seo'] = config('apps.messages.customer');
+        $config['seo'] = config('apps.messages.user');
         return view('backend.user.customer.update', compact('user', 'provinces', 'config'));
     }
 
 
-    public function update($id, Request $request)
+    public function update($id, UpdateUserRequest $request)
     {
         if ($this->userService->update($id, $request)) {
-            return redirect()->route('customer.index')->with('success', 'Cập nhật bản ghi thành công');
+            return redirect()->route('user.index')->with('success', 'Cập nhật bản ghi thành công');
         }
-        return redirect()->route('customer.index')->with('error', 'Cập nhật bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('user.index')->with('error', 'Cập nhật bản ghi không thành công. Hãy thử lại');
     }
 
     public function delete($id)
     {
         // $this->authorize('modules', 'user.delete');
-        $config['seo'] = config('apps.messages.customer');
+        $config['seo'] = config('apps.messages.user');
         $user = $this->userRepository->findById($id);
         return view('backend.user.customer.delete', compact('user', 'config', ));
     }
@@ -86,9 +89,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         if ($this->userService->destroy($id)) {
-            return redirect()->route('customer.index')->with('success', 'Xóa bản ghi thành công');
+            return redirect()->route('user.index')->with('success', 'Xóa bản ghi thành công');
         }
-        return redirect()->route('customer.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('user.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
     }
 
 }

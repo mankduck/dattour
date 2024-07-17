@@ -42,6 +42,28 @@ class UserService extends BaseService implements UserServiceInterface
         return $users;
     }
 
+    public function create($request)
+    {
+        DB::beginTransaction();
+        try {
+
+            $payload = $request->except(['_token', 'send', 're_password']);
+            if ($payload['birthday'] != null) {
+                $payload['birthday'] = $this->convertBirthdayDate($payload['birthday']);
+            }
+            $payload['password'] = Hash::make($payload['password']);
+            $user = $this->userRepository->create($payload);
+            DB::commit();
+            return true;
+        } catch (\Exception $e) {
+            DB::rollBack();
+            // Log::error($e->getMessage());
+            echo $e->getMessage();
+            die();
+            return false;
+        }
+    }
+
     public function update($id, $request)
     {
         DB::beginTransaction();
@@ -80,15 +102,27 @@ class UserService extends BaseService implements UserServiceInterface
             return false;
         }
     }
+    private function convertBirthdayDate($birthday = '')
+    {
+        $carbonDate = Carbon::createFromFormat('Y-m-d', $birthday);
+        $birthday = $carbonDate->format('Y-m-d H:i:s');
+        return $birthday;
+    }
+    
     private function paginateSelect()
     {
         return [
             'id',
-            'email',
             'phone',
+            'email',
             'address',
             'name',
+            'image',
+            'birthday',
             'publish',
+            'vip_member',
+            'publish',
+            'point',
         ];
     }
 

@@ -10,7 +10,7 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('guide.update', $user->id) }}" method="post" class="box">
+    <form action="{{ route('user.update', $user->id) }}" method="post" class="box">
         @csrf
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
@@ -64,16 +64,6 @@
                                         <input type="date" name="birthday"
                                             value="{{ old('birthday', isset($user->birthday) ? date('Y-m-d', strtotime($user->birthday)) : '') }}"
                                             class="form-control" placeholder="" autocomplete="off" readonly>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb15">
-                                <div class="col-lg-12">
-                                    <div class="form-row">
-                                        <label for="" class="control-label text-left">Ghi chú</label>
-                                        <input type="text" name="description"
-                                            value="{{ old('description', $user->description ?? '') }}" class="form-control"
-                                            placeholder="" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
@@ -147,13 +137,12 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-row">
-                                        <label for="" class="control-label text-left">Nhóm Thành viên <span
-                                                class="text-danger">(*)</span></label>
-                                        <select name="role" class="form-control setupSelect2">
-                                            @foreach ($userCatalogue as $key => $item)
-                                                <option
-                                                    {{ $key == old('role', isset($user->role) ? $user->role : '') ? 'selected' : '' }}
-                                                    value="{{ $key }}">{{ $item }}</option>
+                                        <label for="" class="control-label text-left">Chọn Tình Trạng <span
+                                            class="text-danger">(*)</span></label>
+                                        <select name="publish" class="form-control setupSelect2" id="">
+                                            @foreach (config('apps.setup.publish') as $key => $val)
+                                                <option {{ $key == old('publish') }} value="{{ $key }}" {{ $user->publish == $key ? "selected" : "" }}>
+                                                    {{ $val }}</option>
                                             @endforeach
                                         </select>
                                     </div>

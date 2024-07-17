@@ -2,7 +2,7 @@
 @section('adminContent')
     @include('backend.dashboard.component.breadcrumb', ['title' => $config['seo']['delete']['title']])
 
-    <form action="{{ route('guide.destroy', $user->id) }}" method="post" class="box">
+    <form action="{{ route('user.destroy', $user->id) }}" method="post" class="box">
         @csrf
         @method('DELETE')
         <div class="wrapper wrapper-content animated fadeInRight">
