@@ -28,12 +28,14 @@
                         <div class="ibox-content">
                             <div class="row mb15">
                                 <div class="col-lg-6">
-                                    <div class="form-row mb20">
+                                    <div class="form-row">
                                         <label for="" class="control-label text-left">Tên hướng dẫn viên<span
-                                                class="text-danger">(*)</span></label>
-                                        <input type="text" name="name" value="{{ $guides->name }}"
-                                            class="form-control" placeholder="" autocomplete="off">
+                                            class="text-danger">(*)</span></label>
+                                    <input type="text" name="name" value="{{ $guides->name }}"
+                                        class="form-control" placeholder="" autocomplete="off">
                                     </div>
+                                </div>
+                                <div class="col-lg-6">
                                     <div class="form-row">
                                         <label for="" class="control-label text-left">Số điện thoại<span
                                             class="text-danger">(*)</span></label>
@@ -41,32 +43,40 @@
                                         class="form-control" placeholder="" autocomplete="off">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row mb15">
                                 <div class="col-lg-6">
-                                    <div class="form-row mb20">
-                                        <label for="" class="control-label text-left">Sinh nhật<span
-                                                class="text-danger">(*)</span></label>
-                                        <input type="datetime" name="birthday" value="{{ $guides->birthday }}"
-                                            class="form-control" placeholder="" autocomplete="off">
-                                    </div>
                                     <div class="form-row">
                                         <label for="" class="control-label text-left">Mật khẩu<span
                                             class="text-danger">(*)</span></label>
-                                    <input type="password" name="password" value="{{ $guides->password }}"
+                                    <input type="text" name="password" value="{{ $guides->password }}"
                                         class="form-control" placeholder="" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="form-row mb20">
+                                    <div class="form-row">
                                         <label for="" class="control-label text-left">Email<span
                                             class="text-danger">(*)</span></label>
                                     <input type="text" name="email" value="{{ $guides->email }}"
                                         class="form-control" placeholder="" autocomplete="off">
                                     </div>
+                                </div>
+                            </div>
+                            <div class="row mb15">
+
+                                <div class="col-lg-6">
                                     <div class="form-row">
-                                        <span class="image img-cover image-target"><img
-                                                src="{{ $guides->image ? $guides->image : 'backend/img/not-found.png' }}"
-                                                alt=""></span>
-                                        <input type="hidden" name="image" value="{{ $model->image ?? '' }}">
+                                        <label for="" class="control-label text-left">Sinh nhật<span
+                                            class="text-danger">(*)</span></label>
+                                    <input type="datetime" name="birthday" value="{{ $guides->birthday }}"
+                                        class="form-control" placeholder="" autocomplete="off">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-row">
+                                        <label for="" class="control-label text-left">Hình ảnh</label>
+                                    <input type="text" name="image" value="{{ $guides->image }}"
+                                        class="form-control" placeholder="" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
