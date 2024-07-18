@@ -3,9 +3,9 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
 use App\Http\Controllers\Backend\User\CustomerController;
-use App\Http\Controllers\Backend\User\GuideController;
+// use App\Http\Controllers\Backend\User\GuideController;
 use App\Http\Controllers\Backend\ServiceController;
-
+use App\Http\Controllers\Backend\Guide\GuideController;
 use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -50,13 +50,23 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('{id}/destroy', [UserController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('user.destroy');
     });
 
-    Route::group(['prefix' => 'customer'], function () {
-        Route::get('index', [CustomerController::class, 'index'])->name('customer.index');
-        Route::get('{id}/edit', [CustomerController::class, 'edit'])->where(['id' => '[0-9]+'])->name('customer.edit');
-        Route::post('{id}/update', [CustomerController::class, 'update'])->where(['id' => '[0-9]+'])->name('customer.update');
-        Route::get('{id}/delete', [CustomerController::class, 'delete'])->where(['id' => '[0-9]+'])->name('customer.delete');
-        Route::delete('{id}/destroy', [CustomerController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('customer.destroy');
+    Route::group(['prefix' => 'guide'], function () {
+        Route::get('index', [GuideController::class, 'index'])->name('guide.index');
+        Route::get('create', [GuideController::class, 'create'])->name('guide.create');
+        Route::post('store', [GuideController::class, 'store'])->name('guide.store');
+        Route::get('{id}/edit', [GuideController::class, 'edit'])->where(['id' => '[0-9]+'])->name('guide.edit');
+        Route::post('{id}/update', [GuideController::class, 'update'])->where(['id' => '[0-9]+'])->name('guide.update');
+        Route::get('{id}/delete', [GuideController::class, 'delete'])->where(['id' => '[0-9]+'])->name('guide.delete');
+        Route::delete('{id}/destroy', [GuideController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('guide.destroy');
     });
+
+    // Route::group(['prefix' => 'customer'], function () {
+    //     Route::get('index', [CustomerController::class, 'index'])->name('customer.index');
+    //     Route::get('{id}/edit', [CustomerController::class, 'edit'])->where(['id' => '[0-9]+'])->name('customer.edit');
+    //     Route::post('{id}/update', [CustomerController::class, 'update'])->where(['id' => '[0-9]+'])->name('customer.update');
+    //     Route::get('{id}/delete', [CustomerController::class, 'delete'])->where(['id' => '[0-9]+'])->name('customer.delete');
+    //     Route::delete('{id}/destroy', [CustomerController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('customer.destroy');
+    // });
 
     Route::group(['prefix' => 'tour-category'], function () {
         Route::get('index', [TourCategoryController::class, 'index'])->name('tour.category.index');

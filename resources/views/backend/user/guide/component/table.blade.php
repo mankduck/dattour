@@ -5,46 +5,43 @@
                 <input type="checkbox" value="" id="checkAll" class="input-checkbox">
             </th>
             <th>Họ và tên</th>
-            <th>Email</th>
+            <th>Hình ảnh</th>
             <th>SDT</th>
-            <th>Địa chỉ</th>
-            <th class="text-center">Nhóm TV</th>
+            <th>Email</th>
             <th class="text-center">Trạng thái</th>
             <th class="text-center">Tùy chọn</th>
         </tr>
     </thead>
     <tbody>
-        @if (isset($users) && is_object($users))
-            @foreach ($users as $user)
+        @if (isset($guides) && is_object($guides))
+            @foreach ($guides as $guide)
                 <tr>
                     <td>
-                        <input type="checkbox" value="{{ $user->id }}" class="input-checkbox checkBoxItem">
+                        <input type="checkbox" value="{{ $guide->id }}" class="input-checkbox checkBoxItem">
                     </td>
                     <td>
-                        {{ $user->name }}
+                        {{ $guide->name }}
                     </td>
                     <td>
-                        {{ $user->email }}
+                        <img src="{{ $guide->image }}" width="50px" alt="">
                     </td>
                     <td>
-                        {{ $user->phone }}
+                        {{ $guide->phone }}
                     </td>
-                    <td>
-                        {{ $user->address }}
                     </td>
                     <td class="text-center">
-                        {{ ucfirst($user->role) }}
+                        {{ $guide->email }}
                     </td>
-                    <td class="text-center js-switch-{{ $user->id }}">
-                        <input type="checkbox" value="{{ $user->publish }}" class="js-switch status"
+                    <td class="text-center js-switch-{{ $guide->id }}">
+                        <input type="checkbox" value="{{ $guide->publish }}" class="js-switch status"
                             data-field="publish" data-model="{{ $config['model'] }}"
-                            {{ $user->publish == 2 ? 'checked' : '' }} data-modelId="{{ $user->id }}" />
+                            {{ $guide->publish == 2 ? 'checked' : '' }} data-modelId="{{ $guide->id }}" />
                     </td>
 
                     <td class="text-center">
-                        <a href="{{ route('guide.edit', $user->id) }}" class="btn btn-success"><i
+                        <a href="{{ route('guide.edit', $guide->id) }}" class="btn btn-success"><i
                                 class="fa fa-edit"></i></a>
-                        <a href="{{ route('guide.delete', $user->id) }}" class="btn btn-danger"><i
+                        <a href="{{ route('guide.delete', $guide->id) }}" class="btn btn-danger"><i
                                 class="fa fa-trash"></i></a>
                     </td>
                 </tr>
@@ -52,4 +49,4 @@
         @endif
     </tbody>
 </table>
-{{ $users->links('pagination::bootstrap-4') }}
+{{-- {{ $guide->links('pagination::bootstrap-4') }} --}}

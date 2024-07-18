@@ -23,6 +23,12 @@ return [
             'route' => 'admin/user/index',
         ],
         [
+            'title' => 'QL Hướng Dẫn Viên',
+            'icon' => 'fa fa-user',
+            'name' => ['guide'],
+            'route' => 'admin/guide/index',
+        ],
+        [
             'title' => 'QL Tours',
             'icon' => 'fa fa-user',
             'name' => ['tour', 'tour-category'],
