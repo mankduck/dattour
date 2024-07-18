@@ -3,9 +3,9 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
 use App\Http\Controllers\Backend\User\CustomerController;
-// use App\Http\Controllers\Backend\User\GuideController;
+use App\Http\Controllers\Backend\User\GuideController;
 use App\Http\Controllers\Backend\ServiceController;
-use App\Http\Controllers\Backend\Guide\GuideController;
+// use App\Http\Controllers\Backend\Guide\GuideController;
 use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\Route;
 

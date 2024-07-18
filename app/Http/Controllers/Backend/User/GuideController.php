@@ -3,72 +3,86 @@
 namespace App\Http\Controllers\Backend\User;
 
 use App\Http\Controllers\Controller;
-use App\Repositories\Interfaces\ProvinceRepositoryInterface as ProvinceRepository;
-use App\Repositories\Interfaces\UserRepositoryInterface as UserRepository;
-use \Illuminate\Http\Request;
-use App\Services\Interfaces\UserServiceInterface as UserService;
+use App\Http\Requests\Guide\StoreGuideRequest;
+use App\Http\Requests\Guide\UpdateGuideRequest;
+use App\Repositories\Interfaces\GuideRepositoryInterface as GuideRepository;
+use App\Services\Interfaces\GuideServiceInterface as GuideService;
+use Illuminate\Http\Request;
 
 class GuideController extends Controller
 {
-    protected $userService;
-    protected $userRepository;
-    protected $provinceRepository;
+    protected $guideService;
+    protected $guideRepository;
 
     public function __construct(
-        UserService $userService,
-        UserRepository $userRepository,
-        ProvinceRepository $provinceRepository,
-
+        GuideRepository $guideRepository,
+        GuideService $guideService,
     ) {
-        $this->userService = $userService;
-        $this->userRepository = $userRepository;
-        $this->provinceRepository = $provinceRepository;
-
+        $this->guideRepository = $guideRepository;
+        $this->guideService = $guideService;
     }
-
 
     public function index(Request $request)
     {
-        $role = 'admin';
-        $users = $this->userService->paginate($request, $role);
-        $config['model'] = 'User';
+        $guides = $this->guideService->paginate($request);
+        $config['model'] = 'Guide';
         $config['seo'] = config('apps.messages.guide');
 
-        // dd($users);
-        return view('backend.user.guide.index', compact('users', 'config'));
+        // dd($config);
+        return view('backend.user.guide.index', compact('config', 'guides'));
     }
 
+    public function create()
+    {
+        $config['model'] = 'Guide';
+        $config['seo'] = config('apps.messages.guide');
+
+        return view('backend.user.guide.create', compact('config'));
+    }
+
+    public function store(StoreGuideRequest $request)
+    {
+        if ($this->guideService->create($request)) {
+            return redirect()->route('guide.index')->with('success', 'Thêm mới thành công.');
+        }
+        return redirect()->route('guide.index')->with('error', 'Thêm mới không thành công. Vui lòng thử lại');
+    }
 
     public function edit($id)
     {
-        $user = $this->userRepository->findById($id);
-        $provinces = $this->provinceRepository->all();
+        $guides = $this->guideRepository->findById($id);
         $config['seo'] = config('apps.messages.guide');
-        return view('backend.user.guide.update', compact('user', 'provinces', 'config'));
+        $config['model'] = 'Guide';
+
+
+        // dd($guides);
+
+        return view('backend.user.guide.edit', compact('config', 'guides'));
     }
 
-
-    public function update($id, Request $request)
+    public function update(UpdateGuideRequest $request, $id)
     {
-        if ($this->userService->update($id, $request)) {
-            return redirect()->route('guide.index')->with('success', 'Cập nhật bản ghi thành công');
+        if ($this->guideService->update($id, $request)) {
+            return redirect()->route('guide.index')->with('success', 'Sửa thành công.');
         }
-        return redirect()->route('guide.index')->with('error', 'Cập nhật bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('guide.index')->with('error', 'Sửa không thành công. Vui lòng thử lại');
     }
 
     public function delete($id)
     {
         // $this->authorize('modules', 'user.delete');
         $config['seo'] = config('apps.messages.guide');
-        $user = $this->userRepository->findById($id);
-        return view('backend.user.guide.delete', compact('user', 'config', ));
+        $guide = $this->guideRepository->findById($id);
+        return view('backend.user.guide.delete', compact('guide', 'config'));
     }
 
     public function destroy($id)
     {
-        if ($this->userService->destroy($id)) {
-            return redirect()->route('guide.index')->with('success', 'Xóa bản ghi thành công');
+
+        if ($this->guideService->destroy($id)) {
+            return redirect()->route('guide.index')->with('success', 'Xóa thành công.');
         }
-        return redirect()->route('guide.index')->with('error', 'Xóa bản ghi không thành công. Hãy thử lại');
+        return redirect()->route('guide.index')->with('error', 'Xóa không thành công. Vui lòng thử lại');
     }
 }
+
