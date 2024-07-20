@@ -1,21 +1,33 @@
 <?php
 return [
     'module' => [
-        // [
-        //     'title' => 'QL Tài Khoản',
-        //     'icon' => 'fa fa-user',
-        //     'name' => ['customer', 'guide'],
-        //     'subModule' => [
-        //         [
-        //             'title' => 'QL Khách Hàng',
-        //             'route' => 'admin/customer/index'
-        //         ],
-        //         [
-        //             'title' => 'QL Hướng Dẫn Viên',
-        //             'route' => 'admin/guide/index'
-        //         ]
-        //     ]
-        // ],
+        [
+            'title' => 'Thống Kê',
+            'icon' => 'fa fa-clipboard',
+            'name' => ['customer'],
+            'subModule' => [
+                [
+                    'title' => 'TK Số Lượng Đặt Tour',
+                    'route' => 'admin/customer/index'
+                ],
+                [
+                    'title' => 'TK Số Lượng Truy Cập',
+                    'route' => 'admin/guide/index'
+                ],
+                [
+                    'title' => 'TK Doanh Thu',
+                    'route' => 'admin/customer/index'
+                ],
+                [
+                    'title' => 'TK Phản Hồi KH',
+                    'route' => 'admin/customer/index'
+                ],
+                [
+                    'title' => 'Vip Member',
+                    'route' => 'admin/customer/index'
+                ],
+            ]
+        ],
         [
             'title' => 'QL Khách Hàng',
             'icon' => 'fa fa-user',
@@ -24,35 +36,74 @@ return [
         ],
         [
             'title' => 'QL Hướng Dẫn Viên',
-            'icon' => 'fa fa-user',
+            'icon' => 'fa fa-address-card',
             'name' => ['guide'],
             'route' => 'admin/guide/index',
         ],
         [
             'title' => 'QL Tours',
-            'icon' => 'fa fa-user',
+            'icon' => 'fa fa-list',
             'name' => ['tour', 'tour-category'],
             'subModule' => [
                 [
-                    'title' => 'QL Tours',
+                    'title' => 'QL Loại Tour',
+                    'route' => 'admin/tour-category/index'
+                ],
+                [
+                    'title' => 'QL Tours Có Sẵn',
                     'route' => 'admin/tour/index'
                 ],
                 [
-                    'title' => 'QL Loại Tour',
-                    'route' => 'admin/tour-category/index'
-                ]
+                    'title' => 'QL Tours Tự Chọn',
+                    'route' => 'admin/tour/index'
+                ],
+
             ]
         ],
         [
             'title' => 'QL Service',
             'icon' => 'fa fa-service',
             'name' => ['tour', 'service'],
+            'route' => 'admin/service/index'
+        ],
+        [
+            'title' => 'QL Đặt Tour',
+            'icon' => 'fa fa-service',
+            'name' => ['tour-detail'],
+            'route' => 'admin/tour-detail/index'
+        ],
+        [
+            'title' => 'QL Khuyến Mãi',
+            'icon' => 'fa fa-file',
+            'name' => ['language', 'generate'],
             'subModule' => [
                 [
-                    'title' => 'QL Service',
-                    'route' => 'admin/service/index'
+                    'title' => 'QL Vouchers',
+                    'route' => 'system/index'
+                ],
+                [
+                    'title' => 'QL KM Vip',
+                    'route' => 'system/index'
                 ],
             ]
+        ],
+        [
+            'title' => 'QL Resort',
+            'icon' => 'fa fa-user',
+            'name' => ['post'],
+            'route' => 'admin/post/index'
+        ],
+        [
+            'title' => 'QL Bài Viết',
+            'icon' => 'fa fa-blog',
+            'name' => ['post'],
+            'route' => 'admin/post/index'
+        ],
+        [
+            'title' => 'Phản Hồi Của KH',
+            'icon' => 'fa fa-user',
+            'name' => ['post'],
+            'route' => 'admin/post/index'
         ],
         [
             'title' => 'Cấu Hình Chung',
