@@ -944,5 +944,14 @@ input[type="checkbox"] {
     padding: 12px;
     width: 100%;
     height: 100px !important;
-  }
-  
+}
+
+.addDate {
+    color: #1a0dab;
+    padding: 0 1px;
+    cursor: pointer;
+}
+
+.addDate:hover {
+    color:brown;
+}

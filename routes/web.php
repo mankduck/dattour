@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Tour\DestinationController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
+use App\Http\Controllers\Backend\Tour\TourController;
 use App\Http\Controllers\Backend\User\CustomerController;
 use App\Http\Controllers\Backend\User\GuideController;
 use App\Http\Controllers\Backend\ServiceController;
@@ -61,14 +62,6 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('{id}/destroy', [GuideController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('guide.destroy');
     });
 
-    // Route::group(['prefix' => 'customer'], function () {
-    //     Route::get('index', [CustomerController::class, 'index'])->name('customer.index');
-    //     Route::get('{id}/edit', [CustomerController::class, 'edit'])->where(['id' => '[0-9]+'])->name('customer.edit');
-    //     Route::post('{id}/update', [CustomerController::class, 'update'])->where(['id' => '[0-9]+'])->name('customer.update');
-    //     Route::get('{id}/delete', [CustomerController::class, 'delete'])->where(['id' => '[0-9]+'])->name('customer.delete');
-    //     Route::delete('{id}/destroy', [CustomerController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('customer.destroy');
-    // });
-
     Route::group(['prefix' => 'tour-category'], function () {
         Route::get('index', [TourCategoryController::class, 'index'])->name('tour.category.index');
         Route::get('create', [TourCategoryController::class, 'create'])->name('tour.category.create');
@@ -98,6 +91,16 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('{id}/update', [DestinationController::class, 'update'])->where(['id' => '[0-9]+'])->name('destination.update');
         Route::get('{id}/delete', [DestinationController::class, 'delete'])->where(['id' => '[0-9]+'])->name('destination.delete');
         Route::delete('{id}/destroy', [DestinationController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('destination.destroy');
+    });
+
+    Route::group(['prefix' => 'tour'], function () {
+        Route::get('index', [TourController::class, 'index'])->name('tour.index');
+        Route::get('create', [TourController::class, 'create'])->name('tour.create');
+        Route::post('store', [TourController::class, 'store'])->name('tour.store');
+        Route::get('{id}/edit', [TourController::class, 'edit'])->where(['id' => '[0-9]+'])->name('tour.edit');
+        Route::post('{id}/update', [TourController::class, 'update'])->where(['id' => '[0-9]+'])->name('tour.update');
+        Route::get('{id}/delete', [TourController::class, 'delete'])->where(['id' => '[0-9]+'])->name('tour.delete');
+        Route::delete('{id}/destroy', [TourController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('tour.destroy');
     });
 
 });

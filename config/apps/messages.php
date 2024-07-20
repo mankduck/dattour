@@ -30,18 +30,6 @@ return [
             'title' => 'Xóa khách hàng'
         ]
     ],
-    'tour' => [
-        'index' => [
-            'title' => 'Quản lý tour',
-            'table' => 'Danh sách tour'
-        ],
-        'edit' => [
-            'title' => 'Cập nhật tour'
-        ],
-        'delete' => [
-            'title' => 'Xóa tour'
-        ]
-    ],
     'tourCategory' => [
         'index' => [
             'title' => 'Quản lý loại tour',
@@ -85,6 +73,27 @@ return [
         ],
         'delete' => [
             'title' => 'Xóa dịch vụ'
+        ]
+    ],
+    'tour' => [
+        'index' => [
+            'title' => 'Quản lý tour',
+            'table' => 'Danh sách tour'
+        ],
+        'create' => [
+            'title' => 'Thêm mới tour',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật tour'
+        ],
+        'delete' => [
+            'title' => 'Xóa tour'
+        ],
+        'messages' => [
+            'title' => 'Thông tin chung',
+            'description' => 'Mô tả chung',
+            'content' => 'Nội dung',
+            'slug' => 'Đường dẫn'
         ]
     ],
 ];

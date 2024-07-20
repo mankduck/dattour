@@ -7,9 +7,9 @@
             <div class="col-lg-12">
                 <div class="form-row">
                     <span class="image img-cover image-target"><img
-                            src="{{ old('image', $model->image ?? '') ? old('image', $model->image ?? '') : 'backend/img/not-found.png' }}"
+                            src="{{ old('image', $tour->image ?? '') ? old('image', $tour->image ?? '') : 'backend/img/not-found.png' }}"
                             alt=""></span>
-                    <input type="hidden" name="image" value="{{ old('image', $model->image ?? '') }}">
+                    <input type="hidden" name="image" value="{{ old('image', $tour->image ?? '') }}">
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         <select name="publish" class="form-control setupSelect2" id="">
                             @foreach (config('apps.setup.publish') as $key => $val)
                                 <option
-                                    {{ $key == old('publish', isset($model->publish) ? $model->publish : '') ? 'selected' : '' }}
+                                    {{ $key == old('publish', isset($tour->publish) ? $tour->publish : '') ? 'selected' : '' }}
                                     value="{{ $key }}">{{ $val }}</option>
                             @endforeach
                         </select>

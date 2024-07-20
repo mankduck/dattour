@@ -21,7 +21,7 @@
     </div>
 </div>
 @if (!isset($offContent))
-    <div class="row">
+    <div class="row mb30">
         <div class="col-lg-12">
             <div class="form-row">
                 <div class="uk-flex uk-flex-middle uk-flex-space-between">
@@ -39,7 +39,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="form-row">
-                <label for="" class="control-label text-left">{{ $config['seo']['messages']['canonical'] }}<span
+                <label for="" class="control-label text-left">{{ $config['seo']['messages']['slug'] }}<span
                         class="text-danger">(*)</span></label>
                 <input type="text" name="canonical" value="{{ old('canonical', $model->canonical ?? '') }}"
                     class="form-control inputCanonical" placeholder="" autocomplete="off" {{ isset($disabled) ? 'disabled' : '' }}>

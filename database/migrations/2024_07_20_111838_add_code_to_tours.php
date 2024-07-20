@@ -10,12 +10,8 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('tour_dates', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('tour_id');
-            $table->foreign('tour_id')->references('id')->on('tours')->onDelete('cascade');
-            $table->date('time');
-            $table->timestamps();
+        Schema::table('tours', function (Blueprint $table) {
+            $table->string('code');
         });
     }
 
@@ -24,6 +20,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('tour_dates');
+        Schema::table('tours', function (Blueprint $table) {
+            $table->dropColumn('code');
+        });
     }
 };
