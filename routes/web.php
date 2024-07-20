@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\Tour\DestinationController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
 use App\Http\Controllers\Backend\User\CustomerController;
 use App\Http\Controllers\Backend\User\GuideController;
@@ -86,6 +87,17 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('{id}/update', [ServiceController::class, 'update'])->where(['id' => '[0-9]+'])->name('service.update');
         Route::get('{id}/delete', [ServiceController::class, 'delete'])->where(['id' => '[0-9]+'])->name('service.delete');
         Route::delete('{id}/destroy', [ServiceController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('service.destroy');
+    });
+
+
+    Route::group(['prefix' => 'destination'], function () {
+        Route::get('index', [DestinationController::class, 'index'])->name('destination.index');
+        Route::get('create', [DestinationController::class, 'create'])->name('destination.create');
+        Route::post('store', [DestinationController::class, 'store'])->name('destination.store');
+        Route::get('{id}/edit', [DestinationController::class, 'edit'])->where(['id' => '[0-9]+'])->name('destination.edit');
+        Route::post('{id}/update', [DestinationController::class, 'update'])->where(['id' => '[0-9]+'])->name('destination.update');
+        Route::get('{id}/delete', [DestinationController::class, 'delete'])->where(['id' => '[0-9]+'])->name('destination.delete');
+        Route::delete('{id}/destroy', [DestinationController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('destination.destroy');
     });
 
 });

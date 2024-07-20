@@ -1,33 +1,7 @@
 <?php
 return [
     'module' => [
-        [
-            'title' => 'Thống Kê',
-            'icon' => 'fa fa-clipboard',
-            'name' => ['customer'],
-            'subModule' => [
-                [
-                    'title' => 'TK Số Lượng Đặt Tour',
-                    'route' => 'admin/customer/index'
-                ],
-                [
-                    'title' => 'TK Số Lượng Truy Cập',
-                    'route' => 'admin/guide/index'
-                ],
-                [
-                    'title' => 'TK Doanh Thu',
-                    'route' => 'admin/customer/index'
-                ],
-                [
-                    'title' => 'TK Phản Hồi KH',
-                    'route' => 'admin/customer/index'
-                ],
-                [
-                    'title' => 'Vip Member',
-                    'route' => 'admin/customer/index'
-                ],
-            ]
-        ],
+
         [
             'title' => 'QL Khách Hàng',
             'icon' => 'fa fa-user',
@@ -43,8 +17,12 @@ return [
         [
             'title' => 'QL Tours',
             'icon' => 'fa fa-list',
-            'name' => ['tour', 'tour-category'],
+            'name' => ['tour', 'tour-category', 'destination'],
             'subModule' => [
+                [
+                    'title' => 'Địa Danh',
+                    'route' => 'admin/destination/index'
+                ],
                 [
                     'title' => 'QL Loại Tour',
                     'route' => 'admin/tour-category/index'
@@ -104,6 +82,33 @@ return [
             'icon' => 'fa fa-user',
             'name' => ['post'],
             'route' => 'admin/post/index'
+        ],
+        [
+            'title' => 'Thống Kê',
+            'icon' => 'fa fa-clipboard',
+            'name' => ['customer'],
+            'subModule' => [
+                [
+                    'title' => 'TK Số Lượng Đặt Tour',
+                    'route' => 'admin/customer/index'
+                ],
+                [
+                    'title' => 'TK Số Lượng Truy Cập',
+                    'route' => 'admin/guide/index'
+                ],
+                [
+                    'title' => 'TK Doanh Thu',
+                    'route' => 'admin/customer/index'
+                ],
+                [
+                    'title' => 'TK Phản Hồi KH',
+                    'route' => 'admin/customer/index'
+                ],
+                [
+                    'title' => 'Vip Member',
+                    'route' => 'admin/customer/index'
+                ],
+            ]
         ],
         [
             'title' => 'Cấu Hình Chung',

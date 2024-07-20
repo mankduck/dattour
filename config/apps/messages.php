@@ -57,6 +57,21 @@ return [
             'title' => 'Xóa loại tour'
         ]
     ],
+    'destination' => [
+        'index' => [
+            'title' => 'Quản lý địa danh',
+            'table' => 'Danh sách địa danh'
+        ],
+        'create' => [
+            'title' => 'Thêm mới địa danh',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật địa danh'
+        ],
+        'delete' => [
+            'title' => 'Xóa địa danh'
+        ]
+    ],
     'service' => [
         'index' => [
             'title' => 'Quản lý dịch vụ',
