@@ -112,7 +112,7 @@ class TourService extends BaseService implements TourServiceInterface
     {
         $payload = $request->only($this->payload());
         // dd($payload);
-        // $payload['price'] = (convert_price($payload['price']) ?? 0);
+        $payload['price'] = (convert_price($payload['price']) ?? 0);
         $tour = $this->tourRepository->create($payload);
         return $tour;
     }
@@ -143,7 +143,7 @@ class TourService extends BaseService implements TourServiceInterface
     private function updateTour($tour, $request)
     {
         $payload = $request->only($this->payload());
-        // $payload['price'] = convert_price($payload['price']);
+        $payload['price'] = convert_price($payload['price']);
         return $this->tourRepository->update($tour->id, $payload);
     }
 

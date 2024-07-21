@@ -24,6 +24,10 @@ class StoreTourRequest extends FormRequest
         return [
             'name' => 'required',
             'slug' => 'required|unique:tours',
+            'description' => 'required',
+            'code' => 'required',
+            'price' => 'required',
+            'image' => 'required',
         ];
     }
 
@@ -33,6 +37,10 @@ class StoreTourRequest extends FormRequest
             'name.required' => 'Bạn chưa nhập vào ô tiêu đề.',
             'slug.required' => 'Bạn chưa nhập vào ô đường dẫn',
             'slug.unique' => 'Đường dẫn đã tồn tại, Hãy chọn đường dẫn khác',
+            'description.required' => 'Bạn chưa thêm mô tả',
+            'code.required' => 'Bạn chưa nhập vào mã tour',
+            'price.required' => 'Bạn chưa nhập vào giá tiền',
+            'image.required' => 'Bạn chưa thêm ảnh đại diện',
         ];
     }
 }

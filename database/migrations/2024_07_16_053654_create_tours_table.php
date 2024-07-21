@@ -22,8 +22,8 @@ return new class extends Migration
             $table->integer('price');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('tour_categories')->onDelete('cascade');
-            $table->text('album');
-            $table->string('link');
+            $table->text('album')->nullable();
+            $table->string('link')->nullable();
             $table->tinyInteger('publish')->default(1);
             $table->text('service');
             $table->timestamps();

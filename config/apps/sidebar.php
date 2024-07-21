@@ -17,7 +17,7 @@ return [
         [
             'title' => 'QL Tours',
             'icon' => 'fa fa-list',
-            'name' => ['tour', 'tour-category', 'destination'],
+            'name' => ['tour', 'tour-category', 'destination', 'tour-select'],
             'subModule' => [
                 [
                     'title' => 'Địa Danh',
@@ -33,7 +33,7 @@ return [
                 ],
                 [
                     'title' => 'QL Tours Tự Chọn',
-                    'route' => 'admin/tour/index'
+                    'route' => 'admin/tour-select/index'
                 ],
 
             ]
@@ -41,7 +41,7 @@ return [
         [
             'title' => 'QL Service',
             'icon' => 'fa fa-service',
-            'name' => ['tour', 'service'],
+            'name' => ['service'],
             'route' => 'admin/service/index'
         ],
         [
@@ -53,23 +53,23 @@ return [
         [
             'title' => 'QL Khuyến Mãi',
             'icon' => 'fa fa-file',
-            'name' => ['language', 'generate'],
+            'name' => ['generate'],
             'subModule' => [
                 [
                     'title' => 'QL Vouchers',
-                    'route' => 'system/index'
+                    'route' => 'voucher/index'
                 ],
                 [
                     'title' => 'QL KM Vip',
-                    'route' => 'system/index'
+                    'route' => 'vip/index'
                 ],
             ]
         ],
         [
             'title' => 'QL Resort',
             'icon' => 'fa fa-user',
-            'name' => ['post'],
-            'route' => 'admin/post/index'
+            'name' => ['resort'],
+            'route' => 'admin/resort/index'
         ],
         [
             'title' => 'QL Bài Viết',
@@ -80,13 +80,13 @@ return [
         [
             'title' => 'Phản Hồi Của KH',
             'icon' => 'fa fa-user',
-            'name' => ['post'],
-            'route' => 'admin/post/index'
+            'name' => ['feedback'],
+            'route' => 'admin/feedback/index'
         ],
         [
             'title' => 'Thống Kê',
             'icon' => 'fa fa-clipboard',
-            'name' => ['customer'],
+            'name' => ['statistical'],
             'subModule' => [
                 [
                     'title' => 'TK Số Lượng Đặt Tour',
@@ -113,11 +113,11 @@ return [
         [
             'title' => 'Cấu Hình Chung',
             'icon' => 'fa fa-file',
-            'name' => ['language', 'generate', 'widget'],
+            'name' => ['system'],
             'subModule' => [
                 [
                     'title' => 'Cấu Hình Hệ Thống',
-                    'route' => 'system/index'
+                    'route' => 'admin/system/index'
                 ],
             ]
         ]

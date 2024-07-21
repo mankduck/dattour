@@ -953,5 +953,27 @@ input[type="checkbox"] {
 }
 
 .addDate:hover {
-    color:brown;
+    color: brown;
+}
+
+
+.deleteDate {
+    position: absolute;
+    right: 0;
+    top: -10px;
+    /* Adjust this value as needed to position the icon above the input */
+    display: inline;
+    z-index: 10;
+    /* Ensure it appears above other elements */
+}
+
+.deleteDate i{
+    color: red;
+    width: 8px;
+    height: 5px;
+    cursor: pointer;
+}
+
+.formDate {
+    position: relative;
 }

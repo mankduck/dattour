@@ -23,7 +23,6 @@ class StoreServiceRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'icon' => 'required',
             'description' => 'required',
         ];
     }
@@ -32,7 +31,6 @@ class StoreServiceRequest extends FormRequest
     {
         return [
             'name.required' => 'Bạn chưa nhập vào ô tiêu đề.',
-            'icon.required' => 'Bạn chưa nhập vào ô biểu tượng.',
             'description.required' => 'Bạn chưa nhập vào ô miêu tả.',
         ];
     }

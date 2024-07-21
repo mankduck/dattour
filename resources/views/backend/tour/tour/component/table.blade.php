@@ -30,7 +30,7 @@
                         {{ $tour->destination->name }}
                     </td>
                     <td>
-                        {{ $tour->price }}
+                        {{ number_format($tour->price, 0, ',', '.') }}
                     </td>
                     <td>
                         {{ $tour->tour_category->name }}

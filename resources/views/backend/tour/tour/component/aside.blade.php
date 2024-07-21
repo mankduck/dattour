@@ -44,7 +44,8 @@
             <div class="col-lg-12">
                 <div class="form-row">
                     <label for="">Giá</label>
-                    <input type="text" name="price" value="{{ old('price', $tour->price ?? '') }}" class="form-control">
+                    <input type="text" name="price" value="{{ old('price', isset($tour) ? number_format($tour->price, 0, ',', '.') : '') }}"
+                        class="form-control int">
                 </div>
             </div>
         </div>
