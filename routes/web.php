@@ -31,7 +31,7 @@ use App\Http\Controllers\Ajax\LocationController;
 //     return view('welcome');
 // });
 Route::get('/', function () {
-    return view('fontend.prices.index');
+    return view('welcome');
 });
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', function () {
