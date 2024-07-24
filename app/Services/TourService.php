@@ -73,6 +73,7 @@ class TourService extends BaseService implements TourServiceInterface
                 $tour->tour_dates()->each(function ($variant) {
                     $variant->delete();
                 });
+                $this->createTourService($tour, $request);
                 if ($request->input('time')) {
                     $this->createTourDate($tour, $request);
                 }
@@ -139,6 +140,19 @@ class TourService extends BaseService implements TourServiceInterface
         return $tourDate;
     }
 
+    public function createTourService($tour, $request)
+    {
+        $payload = $request->only('service');
+        $tourService = [];
+        if (isset($payload['service']) && count($payload['service'])) {
+            foreach ($payload['service'] as $key => $value) {
+                $tourService[] = [
+                    'service_id' => ($value ?? '')
+                ];
+            }
+        }
+        $tour->services()->sync($tourService);
+    }
 
     private function updateTour($tour, $request)
     {

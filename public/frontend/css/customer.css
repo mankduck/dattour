@@ -1,0 +1,7 @@
+.search-container .body-section .content .price {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary-paragraph);
+    text-transform: capitalize;
+    text-align: left;
+  }

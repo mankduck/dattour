@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Controllers\Frontend\TourCategoryController;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -50,7 +51,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        view()->composer('layout.client', function ($view) {      //Đăng ký một view composer cho view frontend.layout
+            app(TourCategoryController::class)->compose($view);
+            //Sử dụng hàm app() để tạo một instance của HomeController và gọi method compose trên nó, truyền vào đối tượng view hiện tại.
+        });
+
 
         Schema::defaultStringLength(255);
     }

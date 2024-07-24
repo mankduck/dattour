@@ -19,4 +19,10 @@ class TourCategory extends Model
 
     protected $table = 'tour_categories';
 
+    public function tours()
+    {
+        return $this->hasMany(Tour::class, 'category_id');
+    }
+
+
 }

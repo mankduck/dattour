@@ -66,6 +66,7 @@ class TourController extends Controller
         $tour = $this->tourRepository->findByCondition([
             ['id', '=', $id]
         ], false, ['tour_dates']);
+        // dd($tour);
         $destinations = $this->destinationRepository->all();
         $services = $this->serviceRepository->all();
         $tourCategories = $this->tourCategoryRepository->all();

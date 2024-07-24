@@ -54,7 +54,7 @@
 
         });
     }
-
+ 
     PMD.uploadImageToInput = () => {
         $('.upload-image').click(function () {
             let input = $(this)

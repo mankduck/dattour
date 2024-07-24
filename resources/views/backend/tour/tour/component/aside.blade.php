@@ -10,7 +10,7 @@
                     <select name="category_id" class="form-control setupSelect2" id="">
                         @foreach ($tourCategories as $tourCategory)
                             <option
-                                {{ $tourCategory->id == old('category_id', isset($tour->product_catalogue_id) ? $tour->product_catalogue_id : '') ? 'selected' : '' }}
+                                {{ $tourCategory->id == old('category_id', isset($tour->category_id) ? $tour->category_id : '') ? 'selected' : '' }}
                                 value="{{ $tourCategory->id }}">{{ $tourCategory->name }}</option>
                         @endforeach
                     </select>
@@ -24,7 +24,8 @@
                     <label class="control-label">Chọn điểm đến </label>
                     <select name="destination_id" class="form-control setupSelect2" id="">
                         @foreach ($destinations as $destination)
-                            <option {{ $destination->id == old('destination_id') }} {{-- , isset($tour->product_catalogue_id) ? $tour->product_catalogue_id : '') ? 'selected' : ''  --}}
+                            <option
+                                {{ $destination->id == old('destination_id', isset($tour->destination_id) ? $tour->destination_id : '') ? 'selected' : '' }}
                                 value="{{ $destination->id }}">{{ $destination->name }}</option>
                         @endforeach
                     </select>
@@ -44,7 +45,8 @@
             <div class="col-lg-12">
                 <div class="form-row">
                     <label for="">Giá</label>
-                    <input type="text" name="price" value="{{ old('price', isset($tour) ? number_format($tour->price, 0, ',', '.') : '') }}"
+                    <input type="text" name="price"
+                        value="{{ old('price', isset($tour) ? number_format($tour->price, 0, ',', '.') : '') }}"
                         class="form-control int">
                 </div>
             </div>

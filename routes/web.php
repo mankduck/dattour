@@ -16,6 +16,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ajax\DashboardController as AjaxDashboardController;
 use App\Http\Controllers\Ajax\LocationController;
 
+
+/*FRONTEND */
+
+use App\Http\Controllers\Frontend\TourController as FrontendTourController;
+use App\Http\Controllers\Frontend\TourCategoryController as FrontendTourCategoryController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,12 +34,8 @@ use App\Http\Controllers\Ajax\LocationController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
 Route::group(['prefix' => 'auth'], function () {
     Route::get('login', function () {
         echo "Login";
@@ -110,3 +113,18 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('ajax/location/getLocation', [LocationController::class, 'getLocation'])->name('ajax.location.index');
 Route::post('ajax/dashboard/changeStatus', [AjaxDashboardController::class, 'changeStatus'])->name('ajax.dashboard.changeStatus');
 Route::post('ajax/dashboard/changeStatusAll', [AjaxDashboardController::class, 'changeStatusAll'])->name('ajax.dashboard.changeStatusAll');
+
+
+
+
+// Route::get('tour-list', [FrontendTourController::class, 'show'])->name('frontend.tour_list');
+
+Route::get('/', function () {
+    return view('frontend.index');
+})->name('home.index');
+Route::get('/{slug}', [FrontendTourCategoryController::class, 'show'])->name('frontend.tour.list');
+Route::get('/{category}/{slug}', [FrontendTourController::class, 'show'])->name('frontend.tour.detail');
+
+Route::get('destination', function () {
+    return view('frontend.destination');
+})->name('home.destination');

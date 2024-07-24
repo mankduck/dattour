@@ -42,6 +42,11 @@ class Tour extends Model
         return $this->belongsTo(Destination::class, 'destination_id', 'id');
     }
 
+    public function services()
+    {
+        return $this->belongsToMany(Service::class, 'tour_service', 'tour_id', 'service_id');
+    }
+
     public function tour_dates()
     {
         return $this->hasMany(TourDate::class, 'tour_id', 'id');
