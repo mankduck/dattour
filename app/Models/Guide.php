@@ -22,4 +22,11 @@ class Guide extends Model
         'publish',
         'password',
     ];
+
+
+    public function booking_detail()
+    {
+        return $this->hasMany(BookingDetail::class, 'guide_id');
+    }
+
 }

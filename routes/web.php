@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\BookingDetailController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Tour\DestinationController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
@@ -21,6 +22,8 @@ use App\Http\Controllers\Ajax\LocationController;
 
 use App\Http\Controllers\Frontend\TourController as FrontendTourController;
 use App\Http\Controllers\Frontend\TourCategoryController as FrontendTourCategoryController;
+use App\Http\Controllers\Frontend\BookingDetailController as FrontendBookingDetail;
+
 
 
 /*
@@ -36,11 +39,7 @@ use App\Http\Controllers\Frontend\TourCategoryController as FrontendTourCategory
 
 
 
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('login', function () {
-        echo "Login";
-    });
-});
+
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -106,6 +105,15 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('{id}/destroy', [TourController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('tour.destroy');
     });
 
+
+    Route::group(['prefix' => 'booking'], function () {
+        Route::get('index', [BookingDetailController::class, 'index'])->name('booking.index');
+        Route::get('{id}/edit', [BookingDetailController::class, 'edit'])->where(['id' => '[0-9]+'])->name('booking.edit');
+        Route::post('{id}/update', [BookingDetailController::class, 'update'])->where(['id' => '[0-9]+'])->name('booking.update');
+        Route::get('{id}/delete', [BookingDetailController::class, 'delete'])->where(['id' => '[0-9]+'])->name('booking.delete');
+        Route::delete('{id}/destroy', [BookingDetailController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('booking.destroy');
+    });
+
 });
 
 //ROUTES AJAX
@@ -122,8 +130,17 @@ Route::post('ajax/dashboard/changeStatusAll', [AjaxDashboardController::class, '
 Route::get('/', function () {
     return view('frontend.index');
 })->name('home.index');
+
+Route::group(['prefix' => 'auth'], function () {
+    Route::get('login', [BookingDetailController::class, 'index'])->name('booking.index');
+});
+
 Route::get('/{slug}', [FrontendTourCategoryController::class, 'show'])->name('frontend.tour.list');
 Route::get('/{category}/{slug}', [FrontendTourController::class, 'show'])->name('frontend.tour.detail');
+
+
+Route::post('/booking', [FrontendBookingDetail::class, 'confirm'])->name('frontend.booking');
+
 
 Route::get('destination', function () {
     return view('frontend.destination');

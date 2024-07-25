@@ -47,9 +47,17 @@ class Tour extends Model
         return $this->belongsToMany(Service::class, 'tour_service', 'tour_id', 'service_id');
     }
 
+    public function booking_detail()
+    {
+        return $this->hasMany(BookingDetail::class, 'tour_id', 'id');
+    }
+
     public function tour_dates()
     {
         return $this->hasMany(TourDate::class, 'tour_id', 'id');
     }
+
+
+
 
 }

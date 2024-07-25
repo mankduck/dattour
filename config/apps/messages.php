@@ -96,4 +96,26 @@ return [
             'slug' => 'Đường dẫn'
         ]
     ],
+
+    'booking' => [
+        'index' => [
+            'title' => 'Quản lý đặt tour',
+            'table' => 'Danh sách đặt tour'
+        ],
+        'create' => [
+            'title' => 'Thêm mới đặt tour',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật đặt tour'
+        ],
+        'delete' => [
+            'title' => 'Xóa đặt tour'
+        ],
+        'messages' => [
+            'title' => 'Thông tin chung',
+            'description' => 'Mô tả chung',
+            'content' => 'Nội dung',
+            'slug' => 'Đường dẫn'
+        ]
+    ],
 ];

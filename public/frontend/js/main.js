@@ -37,8 +37,8 @@
             $("#back-top").fadeIn(300);
         }
     });
-    
-    
+
+
     /*----------------------------------------------
         :: Swiper Slider Active
     ----------------------------------------------*/
@@ -234,8 +234,8 @@
     /*----------------------------------------------
         :: Fancy box
     ----------------------------------------------*/
-    $(document).ready(function() {
-        $(document).on("click", "[data-fancybox]", function(event) {
+    $(document).ready(function () {
+        $(document).on("click", "[data-fancybox]", function (event) {
             event.preventDefault();
             var videoUrl = $(this).attr("href");
             Fancybox.show([
@@ -246,7 +246,7 @@
             ]);
         });
     });
-    
+
     /*----------------------------------------------
         :: Custom click expand icon
     ----------------------------------------------*/
@@ -305,7 +305,7 @@
         $(".qty-btn-plus, .qty-btn-minus").click(function () {
             var $input = $(this).siblings(".input-qty");
             var value = parseInt($input.val(), 10);
-    
+
             if ($(this).hasClass("qty-btn-plus")) {
                 value++;
             } else {
@@ -318,7 +318,7 @@
         $(".qty-btn-plus-two, .qty-btn-minus-two").click(function () {
             var $input = $(this).siblings(".input-qty-two");
             var value = parseInt($input.val(), 10);
-    
+
             if ($(this).hasClass("qty-btn-plus-two")) {
                 value++;
             } else {
@@ -331,8 +331,57 @@
         });
         $(".done-btn").click(function () {
             updateTotalQuantity();
+            $(".totalBill").html(renderTotal())
+            let price = $(".pricelHidden").val()
+            let children = $(".children").val()
+            let adult = $(".adult").val()
+            let totalChil = 0;
+
+            if (children != 0) {
+                totalChil = (price * 0.8) * children
+            }
+            console.log(price);
+
+            let totalAdult = price * adult
+            let total = totalChil + totalAdult
+
+            $(".total-end-adult").text(formatNumber(totalAdult) + 'đ')
+            $(".total-end-chil").text(formatNumber(totalChil) + 'đ')
+
+            $(".totalAdult").val(totalAdult)
+            $(".totalChil").val(totalChil)
+
+            $(".h4-custom").text(formatNumber(total) + 'đ')
+            $(".totalHidden").val(total)
         });
     });
+
+    function renderTotal() {
+        return `
+        <h4 class="title">Số tiền thanh toán </h4>
+        <div class="col-sm-6">
+        <p class="pera">Vé người lớn: </p>
+        </div>
+        <div class="col-sm-6">
+            <p class="pera total-end-adult text-right">0đ</p>
+        </div>
+        <div class="col-sm-6">
+            <p class="pera">Vé trẻ em: </p>
+        </div>
+        <div class="col-sm-6">
+            <p class="pera total-end-chil text-right">0đ</p>
+        </div>
+        <p class="pera price h4-custom text-right">0đ</p>
+        `
+    }
+
+
+    function formatNumber(number) {
+        return new Intl.NumberFormat('vi-VN', {
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0
+        }).format(number);
+    }
 
 
     /*----------------------------------------------
@@ -379,15 +428,15 @@
     ];
 
     // Initialize Select2
-    $(".select2-title").on('click', function() {
-    var $select = $(this).closest('.select-dropdown-section').find('select');
-    $select.select2('open');
+    $(".select2-title").on('click', function () {
+        var $select = $(this).closest('.select-dropdown-section').find('select');
+        $select.select2('open');
     });
     $(".destination-dropdown").select2({
         containerCssClass: "custom-select2-dropdown",
         dropdownCssClass: "custom-select2-dropdown-container",
     });
-    
+
     $(".destination-dropdown-two").select2({
         data: destination,
         placeholder: "Destination",
@@ -429,7 +478,7 @@
         $(".destination-result-three").html(item.description);
         return item.text;
     }
-    
+
     /*----------------------------------------------
         Date picker
     ----------------------------------------------*/
@@ -457,7 +506,7 @@
         $(".year-result-two").text(EndYear);
     });
 
-    
+
     /*----------------------------------------------
         Always open Date picker
     ----------------------------------------------*/
@@ -536,7 +585,7 @@
             }
         }
     });
-    
+
     /*-----------------------------------------------
         :: Search box
     -----------------------------------------------*/
@@ -722,21 +771,21 @@
     /*-----------------------------------
         OFF inspections
     -----------------------------------*/
-    document.addEventListener("contextmenu", (event) => event.preventDefault());
-    document.onkeydown = function (e) {
-        if (event.keyCode == 123) {
-            return false;
-        }
-        if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
-            return false;
-        }
-        if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
-            return false;
-        }
-        if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
-            return false;
-        }
-    };
+    // document.addEventListener("contextmenu", (event) => event.preventDefault());
+    // document.onkeydown = function (e) {
+    //     if (event.keyCode == 123) {
+    //         return false;
+    //     }
+    //     if (e.ctrlKey && e.shiftKey && e.keyCode == "I".charCodeAt(0)) {
+    //         return false;
+    //     }
+    //     if (e.ctrlKey && e.shiftKey && e.keyCode == "J".charCodeAt(0)) {
+    //         return false;
+    //     }
+    //     if (e.ctrlKey && e.keyCode == "U".charCodeAt(0)) {
+    //         return false;
+    //     }
+    // };
 
     /*-------------------------------------------------
         :: Back To Top

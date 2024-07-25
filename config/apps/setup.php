@@ -6,8 +6,14 @@ return [
         '2' => 'Kích hoạt',
     ],
 
+    'status' => [
+        '1' => 'Chờ xác nhận',
+        '2' => 'Đã xác nhận',
+        '3' => 'Đã hoàn thành'
+    ],
 
-    
+
+
     'search' => 'Tìm kiếm',
     'searchInput' => 'Nhập thông tin tìm kiếm..',
     'perpage' => 'bản ghi',

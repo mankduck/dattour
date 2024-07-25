@@ -47,8 +47,14 @@ return [
         [
             'title' => 'QL Đặt Tour',
             'icon' => 'fa fa-service',
-            'name' => ['tour-detail'],
-            'route' => 'admin/tour-detail/index'
+            'name' => ['booking'],
+            'route' => 'admin/booking/index'
+        ],
+        [
+            'title' => 'QL Hoá Đơn',
+            'icon' => 'fa fa-service',
+            'name' => ['bill'],
+            'route' => 'admin/bill/index'
         ],
         [
             'title' => 'QL Khuyến Mãi',

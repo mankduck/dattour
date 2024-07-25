@@ -26848,6 +26848,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
   border: 1px solid var(--primary-border);
   background: var(--body);
   min-height: 317px;
+  resize: none;
   width: 100%;
   color: var(--primary-title);
 }
@@ -28541,6 +28542,15 @@ button.applyBtn.btn.btn-sm.btn-primary {
     margin-bottom: 20px;
   }
 }
+/* .tour-details-container .container .mt-30 .row{
+  display: initial;
+} */
+/* .sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 20;
+  z-index: 100000;
+} */
 
 .tour-details-container .date-travel-card {
   background-color: var(--tertiary-border);

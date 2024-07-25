@@ -1,7 +1,8 @@
-.search-container .body-section .content .price {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--primary-paragraph);
-    text-transform: capitalize;
-    text-align: left;
-  }
+.custom-text{
+  min-height: 100px !important;
+}
+
+.h4-custom{
+  font-size: 30px !important;
+  font-weight: 800 !important;
+}
