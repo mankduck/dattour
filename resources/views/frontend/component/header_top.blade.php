@@ -46,9 +46,9 @@
                                 <i class="ri-mail-line"></i>
                             </div>
                             <div class="info">
-                                <p class="pera">Email Anytime</p>
+                                <p class="pera">Gửi Email Bất Cứ Lúc Nào</p>
                                 <h4 class="title">
-                                    <a href="javascript:void(0)">example@gmail.com</a>
+                                    <a href="javascript:void(0)">travelloo@gmail.com</a>
                                 </h4>
                             </div>
                         </div>
@@ -57,9 +57,9 @@
                                 <i class="ri-phone-line"></i>
                             </div>
                             <div class="info">
-                                <p class="pera">Call Anytime</p>
+                                <p class="pera">Gọi Bất Cứ Lúc Nào</p>
                                 <h4 class="title">
-                                    <a href="javascript:void(0)">00 (888) +123456</a>
+                                    <a href="javascript:void(0)">+84 385.906.406</a>
                                 </h4>
                             </div>
                         </div>

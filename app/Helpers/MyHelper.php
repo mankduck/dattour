@@ -16,3 +16,27 @@ if (!function_exists('convert_date')) {
     }
 }
 
+
+if(!function_exists('convert_array'))
+{
+    function convert_array($systems = null, $keyword = '', $value = '')
+    {
+        $temp = [];
+        if(is_array($systems))
+        {
+            foreach ($systems as $key => $val) {
+                $temp[$val[$keyword]] = $val[$value];
+            }
+        }
+
+        if(is_object($systems))
+        {
+            foreach ($systems as $key => $val) {
+                // dd($val); 
+                $temp[$val->{$keyword}] = $val->{$value};
+            }
+        }
+
+        return $temp;
+    }
+}

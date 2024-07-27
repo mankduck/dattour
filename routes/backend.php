@@ -17,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 /* ROUTE AJAX */
 use App\Http\Controllers\Ajax\DashboardController as AjaxDashboardController;
 use App\Http\Controllers\Ajax\LocationController;
-
-
+use App\Http\Controllers\Backend\SystemController;
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -91,6 +90,11 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('{id}/update', [BookingDetailController::class, 'update'])->where(['id' => '[0-9]+'])->name('booking.update');
         Route::get('{id}/delete', [BookingDetailController::class, 'delete'])->where(['id' => '[0-9]+'])->name('booking.delete');
         Route::delete('{id}/destroy', [BookingDetailController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('booking.destroy');
+    });
+
+    Route::group(['prefix' => 'system'], function () {
+        Route::get('index', [SystemController::class, 'index'])->name('system.index');
+        Route::post('store', [SystemController::class, 'store'])->name('system.store');
     });
 
 });

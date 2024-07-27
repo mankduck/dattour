@@ -13,6 +13,11 @@ return [
     ],
 
 
+    'company_status' => [
+        'On',
+        'Off'
+    ],
+
 
     'search' => 'Tìm kiếm',
     'searchInput' => 'Nhập thông tin tìm kiếm..',

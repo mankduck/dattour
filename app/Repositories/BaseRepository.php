@@ -73,6 +73,13 @@ class BaseRepository implements BaseRepositoryInterface
         return $model;
     }
 
+
+    public function updateOrInsert(array $payload = [], array $condition = [])
+    {
+        return $this->model->updateOrInsert($condition, $payload);
+    }
+
+
     public function updateByWhereIn(string $whereInField = '', array $whereIn = [], array $payload = [])
     //Where In giúp lọc các bản ghi dựa trên một tập hợp các giá trị cụ thể cho một cột nào đó. WHERE column IN (value1, value2, value3, ...)
     {

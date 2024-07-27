@@ -9,13 +9,13 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <ul class="listing" id="navigation">
                                     <li class="single-list">
-                                        <a href="{{ route('home.index') }}" class="single link-active">Home</a>
+                                        <a href="{{ route('home.index') }}" class="single link-active">Trang chủ</a>
                                     </li>
                                     <li class="single-list">
-                                        <a href="about.html" class="single">About</a>
+                                        <a href="about.html" class="single">Về chúng tôi</a>
                                     </li>
                                     <li class="single-list">
-                                        <a href="{{ route('home.destination') }}" class="single">Destination</a>
+                                        <a href="{{ route('home.destination') }}" class="single">Điểm đến</a>
                                     </li>
                                     <li class="single-list">
                                         <a href="javascript:void(0)" class="single">Tour Package <i

@@ -139,4 +139,14 @@ return [
             'slug' => 'Đường dẫn'
         ]
     ],
+    'system' => [
+        'index' => [
+            'title' => 'Quản lý cài đặt chung',
+            'table' => 'Danh sách cài đặt chung'
+        ],
+        'messages' => [
+            'title' => 'Thông tin chung',
+            'description' => 'Cài đặt đầy đủ thông tin chung của website',
+        ]
+    ],
 ];
