@@ -75,6 +75,12 @@ return [
             'title' => 'Xóa dịch vụ'
         ]
     ],
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+];
+=======
+>>>>>>> origin/VietDuong
     'tour' => [
         'index' => [
             'title' => 'Quản lý tour',
@@ -118,4 +124,30 @@ return [
             'slug' => 'Đường dẫn'
         ]
     ],
+<<<<<<< HEAD
 ];
+=======
+    'post' => [
+        'index' => [
+            'title' => 'Quản lý bài viết',
+            'table' => 'Danh sách bài viết'
+        ],
+        'create' => [
+            'title' => 'Thêm mới bài viết',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật bài viết'
+        ],
+        'delete' => [
+            'title' => 'Xóa bài viết'
+        ],
+        'messages' => [
+            'title' => 'Thông tin chung',
+            'description' => 'Mô tả chung',
+            'content' => 'Nội dung',
+            'slug' => 'Đường dẫn'
+        ]
+    ],
+];
+>>>>>>> Stashed changes
+>>>>>>> origin/VietDuong

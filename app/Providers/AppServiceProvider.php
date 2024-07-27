@@ -25,6 +25,11 @@ class AppServiceProvider extends ServiceProvider
         'App\Services\Interfaces\ServiceServiceInterface' => 'App\Services\ServiceService',
         'App\Repositories\Interfaces\ServiceRepositoryInterface' => 'App\Repositories\ServiceRepository',
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/VietDuong
         'App\Services\Interfaces\DestinationServiceInterface' => 'App\Services\DestinationService',
         'App\Repositories\Interfaces\DestinationRepositoryInterface' => 'App\Repositories\DestinationRepository',
 
@@ -34,6 +39,13 @@ class AppServiceProvider extends ServiceProvider
         'App\Services\Interfaces\BookingDetailServiceInterface' => 'App\Services\BookingDetailService',
         'App\Repositories\Interfaces\BookingDetailRepositoryInterface' => 'App\Repositories\BookingDetailRepository',
 
+<<<<<<< HEAD
+=======
+        'App\Services\Interfaces\PostServiceInterface' => 'App\Services\PostService',
+        'App\Repositories\Interfaces\PostRepositoryInterface' => 'App\Repositories\PostRepository',
+
+>>>>>>> Stashed changes
+>>>>>>> origin/VietDuong
         //Việc đăng ký các interface và implementation trong container của Laravel cho phép framework này biết cách tạo ra các instance của các class khi cần thiết.
     ];
 
