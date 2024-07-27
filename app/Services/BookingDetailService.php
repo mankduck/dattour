@@ -99,7 +99,7 @@ class BookingDetailService extends BaseService implements BookingDetailServiceIn
     public function createBookingDetail($request)
     {
         $payload = $request->except(['_token', 'send']);
-        $payload['tour_date'] = $this->convertDateTime($payload['tour_date']);
+        // $payload['tour_date'] = $this->convertDateTime($payload['tour_date']);
         $booking = $this->bookingDetailRepository->create($payload);
         return $booking;
     }
