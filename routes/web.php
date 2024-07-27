@@ -8,11 +8,6 @@ use App\Http\Controllers\Frontend\TourCategoryController as FrontendTourCategory
 use App\Http\Controllers\Frontend\BookingDetailController as FrontendBookingDetail;
 
 
-/* ROUTE AJAX */
-use App\Http\Controllers\Ajax\DashboardController as AjaxDashboardController;
-use App\Http\Controllers\Ajax\LocationController;
-use App\Http\Controllers\Backend\PostController;
-
 
 
 /*
@@ -46,6 +41,11 @@ Route::get('/', function () {
 
 
 
+Route::get('destination', function () {
+    return view('frontend.destination');
+})->name('home.destination');
+
+
 
 Route::get('/{slug}', [FrontendTourCategoryController::class, 'show'])->name('frontend.tour.list');
 
@@ -56,11 +56,6 @@ Route::get('/{category}/{slug}', [FrontendTourController::class, 'show'])->name(
 
 Route::post('/booking', [FrontendBookingDetail::class, 'confirm'])->name('frontend.booking');
 
-
-
-Route::get('destination', function () {
-    return view('frontend.destination');
-})->name('home.destination');
 
 
 

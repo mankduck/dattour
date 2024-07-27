@@ -1,6 +1,6 @@
 @extends('layout.client')
 @section('clientContent')
-    @include('frontend.component.breadcrumb')
+    @include('frontend.component.breadcrumb', ['title' => config('apps.menus.menu.destination')])
     <!-- Destination area S t a r t -->
     <section class="destination-section bottom-padding1">
         <div class="destination-area">

@@ -1,20 +1,8 @@
 @extends('layout.client')
 @section('clientContent')
     <!-- Breadcrumbs S t a r t -->
-    <section class="breadcrumbs-area breadcrumb-bg">
-        <div class="container">
-            <h1 class="title wow fadeInUp" data-wow-delay="0.0s">Contact</h1>
-            <div class="breadcrumb-text">
-                <nav aria-label="breadcrumb" class="breadcrumb-nav wow fadeInUp" data-wow-delay="0.1s">
-                    <ul class="breadcrumb listing">
-                        <li class="breadcrumb-item single-list"><a href="index.html" class="single">Home</a></li>
-                        <li class="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)"
-                                class="single active">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </section>
+    @include('frontend.component.breadcrumb', ['title' => config('apps.menus.menu.order_tracking')])
+
     <!--/ End-of Breadcrumbs-->
 
     <!-- Plan area S t a r t -->
