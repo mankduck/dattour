@@ -69,4 +69,72 @@ return [
             'title' => 'Xóa dịch vụ'
         ]
     ],
+<<<<<<< Updated upstream
 ];
+=======
+    'tour' => [
+        'index' => [
+            'title' => 'Quản lý tour',
+            'table' => 'Danh sách tour'
+        ],
+        'create' => [
+            'title' => 'Thêm mới tour',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật tour'
+        ],
+        'delete' => [
+            'title' => 'Xóa tour'
+        ],
+        'messages' => [
+            'title' => 'Thông tin chung',
+            'description' => 'Mô tả chung',
+            'content' => 'Nội dung',
+            'slug' => 'Đường dẫn'
+        ]
+    ],
+
+    'booking' => [
+        'index' => [
+            'title' => 'Quản lý đặt tour',
+            'table' => 'Danh sách đặt tour'
+        ],
+        'create' => [
+            'title' => 'Thêm mới đặt tour',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật đặt tour'
+        ],
+        'delete' => [
+            'title' => 'Xóa đặt tour'
+        ],
+        'messages' => [
+            'title' => 'Thông tin chung',
+            'description' => 'Mô tả chung',
+            'content' => 'Nội dung',
+            'slug' => 'Đường dẫn'
+        ]
+    ],
+    'post' => [
+        'index' => [
+            'title' => 'Quản lý bài viết',
+            'table' => 'Danh sách bài viết'
+        ],
+        'create' => [
+            'title' => 'Thêm mới bài viết',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật bài viết'
+        ],
+        'delete' => [
+            'title' => 'Xóa bài viết'
+        ],
+        'messages' => [
+            'title' => 'Thông tin chung',
+            'description' => 'Mô tả chung',
+            'content' => 'Nội dung',
+            'slug' => 'Đường dẫn'
+        ]
+    ],
+];
+>>>>>>> Stashed changes
