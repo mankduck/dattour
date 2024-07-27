@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
 use App\Http\Controllers\Backend\User\CustomerController;
 use App\Http\Controllers\Backend\User\GuideController;
@@ -25,17 +26,7 @@ use App\Http\Controllers\Ajax\LocationController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', function () {
-    return view('fontend.prices.index');
-});
-Route::group(['prefix' => 'auth'], function () {
-    Route::get('login', function () {
-        echo "Login";
-    });
-});
+
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
@@ -50,12 +41,12 @@ Route::group(['prefix' => 'admin'], function () {
         Route::delete('{id}/destroy', [UserController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('user.destroy');
     });
 
-    Route::group(['prefix' => 'customer'], function () {
-        Route::get('index', [CustomerController::class, 'index'])->name('customer.index');
-        Route::get('{id}/edit', [CustomerController::class, 'edit'])->where(['id' => '[0-9]+'])->name('customer.edit');
-        Route::post('{id}/update', [CustomerController::class, 'update'])->where(['id' => '[0-9]+'])->name('customer.update');
-        Route::get('{id}/delete', [CustomerController::class, 'delete'])->where(['id' => '[0-9]+'])->name('customer.delete');
-        Route::delete('{id}/destroy', [CustomerController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('customer.destroy');
+    Route::group(['prefix' => 'guide'], function () {
+        Route::get('index', [GuideController::class, 'index'])->name('guide.index');
+        Route::get('{id}/edit', [GuideController::class, 'edit'])->where(['id' => '[0-9]+'])->name('guide.edit');
+        Route::post('{id}/update', [GuideController::class, 'update'])->where(['id' => '[0-9]+'])->name('guide.update');
+        Route::get('{id}/delete', [GuideController::class, 'delete'])->where(['id' => '[0-9]+'])->name('guide.delete');
+        Route::delete('{id}/destroy', [GuideController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('guide.destroy');
     });
 
     Route::group(['prefix' => 'tour-category'], function () {
@@ -76,8 +67,18 @@ Route::group(['prefix' => 'admin'], function () {
         Route::post('{id}/update', [ServiceController::class, 'update'])->where(['id' => '[0-9]+'])->name('service.update');
         Route::get('{id}/delete', [ServiceController::class, 'delete'])->where(['id' => '[0-9]+'])->name('service.delete');
         Route::delete('{id}/destroy', [ServiceController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('service.destroy');
+
     });
 
+    Route::group(['prefix' => 'post'], function () {
+        Route::get('index', [PostController::class, 'index'])->name('post.index');
+        Route::get('create', [PostController::class, 'create'])->name('post.create');
+        Route::post('store', [PostController::class, 'store'])->name('post.store');
+        Route::get('{id}/edit', [PostController::class, 'edit'])->where(['id' => '[0-9]+'])->name('post.edit');
+        Route::post('{id}/update', [PostController::class, 'update'])->where(['id' => '[0-9]+'])->name('post.update');
+        Route::get('{id}/delete', [PostController::class, 'delete'])->where(['id' => '[0-9]+'])->name('post.delete');
+        Route::delete('{id}/destroy', [PostController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('post.destroy');
+    });
 });
 
 //ROUTES AJAX
