@@ -11,3 +11,15 @@
 
     {{-- Custom js --}}
     <script src="/frontend/library/booking.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const signBtn = document.querySelector('.sign-btn');
+            const dropdownMenu = signBtn.querySelector('.dropdown-menu');
+
+            signBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log(2131321313);
+                dropdownMenu.classList.toggle('show');
+            });
+        });
+    </script>

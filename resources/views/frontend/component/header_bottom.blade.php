@@ -91,23 +91,55 @@
                                         <a href="contact.html" class="single">Contact</a>
                                     </li>
                                     <li class="d-block d-lg-none">
-                                        <div class="header-right pl-15">
-                                            <div class="d-flex align-items-center gap-12">
-                                                
-                                            </div>
+                                        <div class="header-right">
                                             <div class="sign-btn">
-                                                <a href="login.html" class="btn-secondary-sm">Sign
-                                                    In</a>
+                                                @if (Auth::check())
+                                                    <ul class="listing" id="navigation">
+                                                        <li class="single-list">
+                                                            <a href="javascript:void(0)"
+                                                                class="single">{{ Auth::user()->name }}
+                                                                <i class="ri-arrow-down-s-line"></i></a>
+                                                            <ul class="submenu">
+                                                                <li class="single-list">
+                                                                    <a href="" class="single">Quản lý tài
+                                                                        khoản</a>
+                                                                    <a href="{{ route('order_tracking') }}"
+                                                                        class="single">Theo dõi đơn hàng</a>
+                                                                    <a href="{{ route('logout') }}" class="single">Đăng
+                                                                        xuất</a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                @else
+                                                    <a href="{{ route('login') }}" class="btn-secondary-sm">Sign In</a>
+                                                @endif
                                             </div>
                                         </div>
                                     </li>
                                 </ul>
                                 <div class="header-right">
-                                    <div class="d-flex align-items-center gap-12">
-                                        
-                                    </div>
                                     <div class="sign-btn">
-                                        <a href="login.html" class="btn-secondary-sm">Sign In</a>
+                                        @if (Auth::check())
+                                            <ul class="listing" id="navigation">
+                                                <li class="single-list">
+                                                    <a href="javascript:void(0)"
+                                                        class="single">{{ Auth::user()->name }}
+                                                        <i class="ri-arrow-down-s-line"></i></a>
+                                                    <ul class="submenu">
+                                                        <li class="single-list">
+                                                            <a href="" class="single">Quản lý tài khoản</a>
+                                                            <a href="{{ route('order_tracking') }}"
+                                                                class="single">Theo dõi đơn hàng</a>
+                                                            <a href="{{ route('logout') }}" class="single">Đăng
+                                                                xuất</a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        @else
+                                            <a href="{{ route('login') }}" class="btn-secondary-sm">Sign In</a>
+                                        @endif
                                     </div>
                                     <!-- Theme Mode -->
                                     <li class="single-list">

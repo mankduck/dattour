@@ -18499,6 +18499,18 @@ button.applyBtn.btn.btn-sm.btn-primary {
   align-items: center;
 }
 
+/* @media (max-width: 991px) {
+  .header-area .header-right {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    gap: 22px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+} */
+
 .header-area .header-right .lang {
   color: var(--primary-title);
   font-size: 20px;
@@ -20887,7 +20899,13 @@ button.applyBtn.btn.btn-sm.btn-primary {
     font-size: 14px;
     padding: 12px;
   }
+
+  .header-right .sign-btn{
+    width: 100%;
+  }
 }
+
+
 
 .airport-desc {
   color: var(--primary-title);
@@ -28542,6 +28560,7 @@ button.applyBtn.btn.btn-sm.btn-primary {
     margin-bottom: 20px;
   }
 }
+
 /* .tour-details-container .container .mt-30 .row{
   display: initial;
 } */

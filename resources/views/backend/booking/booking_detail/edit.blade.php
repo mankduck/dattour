@@ -150,7 +150,8 @@
             </div>
 
             <div class="text-right mb15">
-                <a class="btn btn-primary mr10" href="">Xem danh sách chi tiết</a>
+                <a href="{{ route('booking.delete', $booking->id) }}" class="btn btn-warning"><i
+                        class="fa fa-envelope-o"></i> Gửi Email Xác Nhận</a>
                 <button class="btn btn-primary" type="submit" name="send" value="send">Lưu lại</button>
             </div>
         </div>
