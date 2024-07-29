@@ -5,13 +5,14 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Traits\QueryScopes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Model
 {
-    use HasApiTokens, HasFactory, Notifiable, QueryScopes;
+    use HasApiTokens, HasFactory, Notifiable, QueryScopes, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -20,8 +21,6 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
-        'password',
         'phone',
         'province_id',
         'district_id',
@@ -29,10 +28,10 @@ class User extends Authenticatable
         'address',
         'birthday',
         'image',
-        'role',
-        'publish',
-        'email_verification_token',
-        'email_verified_at',
+        'account_id',
+        'vip_member',
+        'point',
+
     ];
 
     /**
@@ -41,17 +40,34 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
     ];
+
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+
+    public function account()
+    {
+        return $this->belongsTo(Account::class);
+    }
+
+    public function provinces()
+    {
+        return $this->belongsTo(Province::class, 'province_id', 'code');
+    }
+
+    public function districts()
+    {
+        return $this->belongsTo(District::class, 'district_id', 'code');
+    }
+
+    public function wards()
+    {
+        return $this->belongsTo(Ward::class, 'ward_id', 'code');
+    }
+
 }

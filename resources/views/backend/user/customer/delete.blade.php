@@ -26,7 +26,7 @@
                                         <label for="" class="control-label text-left">Email <span
                                                 class="text-danger">(*)</span></label>
                                         <input type="text" name="email"
-                                            value="{{ old('email', $user->email ?? '') }}" class="form-control"
+                                            value="{{ old('email', $user->account->email ?? '') }}" class="form-control"
                                             placeholder="" autocomplete="off" readonly>
                                     </div>
                                 </div>

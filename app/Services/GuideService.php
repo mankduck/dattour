@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Services\Interfaces\GuideServiceInterface;
 use App\Repositories\Interfaces\GuideRepositoryInterface as GuideRepository;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -16,8 +17,7 @@ class GuideService extends BaseService implements GuideServiceInterface
 
     public function __construct(
         GuideRepository $guideRepository
-    )
-    {
+    ) {
         $this->guideRepository = $guideRepository;
     }
 
@@ -37,10 +37,15 @@ class GuideService extends BaseService implements GuideServiceInterface
         return $guides;
     }
 
-    public function create($request){
+    public function create($request)
+    {
         DB::beginTransaction();
         try {
             $payload = $request->except(['_token', 'send']);
+            if ($payload['birthday'] != null) {
+                $payload['birthday'] = $this->convertBirthdayDate($payload['birthday']);
+            }
+            // dd($payload);
             //Except nhận một mảng các khóa muốn loại bỏ khỏi dữ liệu yêu cầu, ở đây là _token và send
             $guide = $this->guideRepository->create($payload);
             DB::commit();
@@ -60,6 +65,9 @@ class GuideService extends BaseService implements GuideServiceInterface
         try {
 
             $payload = $request->except(['_token', 'send']);
+            if ($payload['birthday'] != null) {
+                $payload['birthday'] = $this->convertBirthdayDate($payload['birthday']);
+            }
             // dd($payload);
             $guide = $this->guideRepository->update($id, $payload);
             DB::commit();
@@ -90,15 +98,22 @@ class GuideService extends BaseService implements GuideServiceInterface
         }
     }
 
+    private function convertBirthdayDate($birthday = '')
+    {
+        $carbonDate = Carbon::createFromFormat('Y-m-d', $birthday);
+        $birthday = $carbonDate->format('Y-m-d H:i:s');
+        return $birthday;
+    }
+
     private function paginateSelect()
     {
         return [
             'id',
+            'account_id',
             'name',
+            'birthday',
             'image',
             'phone',
-            'email',
-            'publish',
         ];
     }
 }

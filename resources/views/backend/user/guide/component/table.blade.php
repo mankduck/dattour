@@ -4,11 +4,10 @@
             <th>
                 <input type="checkbox" value="" id="checkAll" class="input-checkbox">
             </th>
-            <th>Họ và tên</th>
             <th>Hình ảnh</th>
-            <th>SDT</th>
+            <th>Thông tin</th>
             <th>Email</th>
-            <th class="text-center">Trạng thái</th>
+            <th>SDT</th>
             <th class="text-center">Tùy chọn</th>
         </tr>
     </thead>
@@ -20,24 +19,18 @@
                         <input type="checkbox" value="{{ $guide->id }}" class="input-checkbox checkBoxItem">
                     </td>
                     <td>
-                        {{ $guide->name }}
+                        <img src="{{ $guide->image }}" width="50px" alt="">
                     </td>
                     <td>
-                        <img src="{{ $guide->image }}" width="50px" alt="">
+                        <div class="">{{ $guide->name }}</div>
+                        <div class="">Ngày sinh: {{ convert_date($guide->birthday) }}</div>
+                    </td>
+                    <td class="text-center">
+                        {{ $guide->account->email }}
                     </td>
                     <td>
                         {{ $guide->phone }}
                     </td>
-                    </td>
-                    <td class="text-center">
-                        {{ $guide->email }}
-                    </td>
-                    <td class="text-center js-switch-{{ $guide->id }}">
-                        <input type="checkbox" value="{{ $guide->publish }}" class="js-switch status"
-                            data-field="publish" data-model="{{ $config['model'] }}"
-                            {{ $guide->publish == 2 ? 'checked' : '' }} data-modelId="{{ $guide->id }}" />
-                    </td>
-
                     <td class="text-center">
                         <a href="{{ route('guide.edit', $guide->id) }}" class="btn btn-success"><i
                                 class="fa fa-edit"></i></a>

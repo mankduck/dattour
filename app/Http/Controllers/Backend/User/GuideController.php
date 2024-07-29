@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Backend\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Guide\StoreGuideRequest;
-use App\Http\Requests\Guide\UpdateGuideRequest;
+use App\Http\Requests\User\StoreGuideRequest;
+use App\Http\Requests\User\UpdateGuideRequest;
+use App\Repositories\Interfaces\AccountRepositoryInterface as AccountRepository;
 use App\Repositories\Interfaces\GuideRepositoryInterface as GuideRepository;
 use App\Services\Interfaces\GuideServiceInterface as GuideService;
 use Illuminate\Http\Request;
@@ -13,17 +14,24 @@ class GuideController extends Controller
 {
     protected $guideService;
     protected $guideRepository;
+    protected $accountRepository;
+
 
     public function __construct(
         GuideRepository $guideRepository,
         GuideService $guideService,
+        AccountRepository $accountRepository
+
     ) {
         $this->guideRepository = $guideRepository;
         $this->guideService = $guideService;
+        $this->accountRepository = $accountRepository;
+
     }
 
     public function index(Request $request)
     {
+        $this->authorize('modules', 'guide.index');
         $guides = $this->guideService->paginate($request);
         $config['model'] = 'Guide';
         $config['seo'] = config('apps.messages.guide');
@@ -34,10 +42,14 @@ class GuideController extends Controller
 
     public function create()
     {
+        $this->authorize('modules', 'guide.create');
         $config['model'] = 'Guide';
         $config['seo'] = config('apps.messages.guide');
-
-        return view('backend.user.guide.create', compact('config'));
+        $accounts = $this->accountRepository->findByCondition([
+            ['role_id', '=', 3],
+            ['publish', '=', 2]
+        ], true);
+        return view('backend.user.guide.create', compact('config', 'accounts'));
     }
 
     public function store(StoreGuideRequest $request)
@@ -50,14 +62,18 @@ class GuideController extends Controller
 
     public function edit($id)
     {
-        $guides = $this->guideRepository->findById($id);
+        $this->authorize('modules', 'guide.edit');
+        $guide = $this->guideRepository->findById($id);
         $config['seo'] = config('apps.messages.guide');
         $config['model'] = 'Guide';
 
-
+        $accounts = $this->accountRepository->findByCondition([
+            ['role_id', '=', 3],
+            ['publish', '=', 2]
+        ], true);
         // dd($guides);
 
-        return view('backend.user.guide.edit', compact('config', 'guides'));
+        return view('backend.user.guide.edit', compact('config', 'guide', 'accounts'));
     }
 
     public function update(UpdateGuideRequest $request, $id)
@@ -70,7 +86,7 @@ class GuideController extends Controller
 
     public function delete($id)
     {
-        // $this->authorize('modules', 'user.delete');
+        $this->authorize('modules', 'guide.delete');
         $config['seo'] = config('apps.messages.guide');
         $guide = $this->guideRepository->findById($id);
         return view('backend.user.guide.delete', compact('guide', 'config'));

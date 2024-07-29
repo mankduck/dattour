@@ -5,13 +5,13 @@
                 <input type="checkbox" value="" id="checkAll" class="input-checkbox">
             </th>
             <th>Hình ảnh</th>
-            <th>Họ và tên</th>
+            <th>Thông tin</th>
             <th>Email</th>
             <th>SDT</th>
             <th>Địa chỉ</th>
             <th class="text-center">Điểm</th>
             <th class="text-center">Vip</th>
-            <th class="text-center">Trạng thái</th>
+            {{-- <th class="text-center">Trạng thái</th> --}}
             <th class="text-center">Tùy chọn</th>
         </tr>
     </thead>
@@ -26,30 +26,28 @@
                         <img src="{{ $user->image }}" width="50px" height="50px" alt="">
                     </td>
                     <td>
-                        {{ $user->name }}
+                        <div>{{ $user->name }}</div>
+                        <div>Ngày sinh: {{ convert_date($user->birthday) }}</div>
                     </td>
                     <td>
-                        {{ $user->email }}
+                        {{ $user->account->email }}
                     </td>
                     <td>
                         {{ $user->phone }}
                     </td>
+                    {{-- @dd($user->provinces) --}}
                     <td>
-                        {{ $user->address }}
+                        {{ $user->address }}, {{ $user->wards->name ?? '' }}, {{ $user->districts->name ?? '' }},
+                        {{ $user->provinces->name ?? '' }}
                     </td>
-                    <td class="text-center">
-                        {{ ucfirst($user->role) }}
+                    <td>
                         {{ $user->point }}
                     </td>
                     <td class="text-center">
-                        {{ $user->vip_member }}
+                        @foreach (config('apps.setup.vip') as $key => $val)
+                            {{ $user->vip_member == $key ? $val : '' }}
+                        @endforeach
                     </td>
-                    <td class="text-center js-switch-{{ $user->id }}">
-                        <input type="checkbox" value="{{ $user->publish }}" class="js-switch status"
-                            data-field="publish" data-model="{{ $config['model'] }}"
-                            {{ $user->publish == 2 ? 'checked' : '' }} data-modelId="{{ $user->id }}" />
-                    </td>
-
                     <td class="text-center">
                         <a href="{{ route('user.edit', $user->id) }}" class="btn btn-success"><i
                                 class="fa fa-edit"></i></a>

@@ -10,11 +10,20 @@ class AppServiceProvider extends ServiceProvider
 {
     //Khai Báo Interface và Implementation
     public $bindings = [
+        'App\Services\Interfaces\AccountServiceInterface' => 'App\Services\AccountService',
+        'App\Repositories\Interfaces\AccountRepositoryInterface' => 'App\Repositories\AccountRepository',
+
         'App\Services\Interfaces\UserServiceInterface' => 'App\Services\UserService',
         'App\Repositories\Interfaces\UserRepositoryInterface' => 'App\Repositories\UserRepository',
 
         'App\Services\Interfaces\GuideServiceInterface' => 'App\Services\GuideService',
         'App\Repositories\Interfaces\GuideRepositoryInterface' => 'App\Repositories\GuideRepository',
+
+        'App\Services\Interfaces\RoleServiceInterface' => 'App\Services\RoleService',
+        'App\Repositories\Interfaces\RoleRepositoryInterface' => 'App\Repositories\RoleRepository',
+
+        'App\Services\Interfaces\PermissionServiceInterface' => 'App\Services\PermissionService',
+        'App\Repositories\Interfaces\PermissionRepositoryInterface' => 'App\Repositories\PermissionRepository',
 
         'App\Repositories\Interfaces\ProvinceRepositoryInterface' => 'App\Repositories\ProvinceRepository',
         'App\Repositories\Interfaces\DistrictRepositoryInterface' => 'App\Repositories\DistrictRepository',

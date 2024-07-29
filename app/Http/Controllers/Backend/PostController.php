@@ -28,7 +28,7 @@ class PostController extends Controller
 
     public function index(Request $request)
     {
-        //
+        $this->authorize('modules', 'post.index');
         $config['model'] = 'Post';
         $config['seo'] = config('apps.messages.post');
         $posts = $this->postService->paginate($request);
@@ -40,7 +40,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $this->authorize('modules', 'post.create');
         $config['model'] = 'Post';
         $config['seo'] = config('apps.messages.post');
         return view('backend.post.create', compact('config'));
@@ -70,7 +70,7 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $this->authorize('modules', 'post.edit');
         $config['model'] = 'Post';
         $config['seo'] = config('apps.messages.post');
         $post = $this->postRepository->findById($id);
@@ -95,7 +95,7 @@ class PostController extends Controller
      */
     public function delete($id)
     {
-        // $this->authorize('modules', 'user.delete');
+        $this->authorize('modules', 'post.delete');
         $config['seo'] = config('apps.messages.post');
         $post = $this->postRepository->findById($id);
         return view('backend.post.delete', compact('post', 'config', ));

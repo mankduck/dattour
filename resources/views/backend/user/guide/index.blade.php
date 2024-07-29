@@ -12,7 +12,7 @@
                     </div>
                     <div class="ibox-content">
                         @include('backend.user.guide.component.filter')
-                    @include('backend.user.guide.component.table')
+                        @include('backend.user.guide.component.table')
                     </div>
                 </div>
             </div>

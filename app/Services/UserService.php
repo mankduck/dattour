@@ -29,7 +29,7 @@ class UserService extends BaseService implements UserServiceInterface
     public function paginate($request)
     {
         $condition['keyword'] = addslashes($request->input('keyword'));
-        $condition['publish'] = $request->integer('publish');
+        // $condition['publish'] = $request->integer('publish');
         $perPage = ($request->integer('perpage') > 0) ? $request->integer('perpage') : 9;
         $users = $this->userRepository->pagination(
             $this->paginateSelect(),
@@ -47,11 +47,10 @@ class UserService extends BaseService implements UserServiceInterface
         DB::beginTransaction();
         try {
 
-            $payload = $request->except(['_token', 'send', 're_password']);
+            $payload = $request->except(['_token', 'send']);
             if ($payload['birthday'] != null) {
                 $payload['birthday'] = $this->convertBirthdayDate($payload['birthday']);
             }
-            $payload['password'] = Hash::make($payload['password']);
             $user = $this->userRepository->create($payload);
             DB::commit();
             return true;
@@ -70,7 +69,7 @@ class UserService extends BaseService implements UserServiceInterface
         try {
 
             $payload = $request->except(['_token', 'send']);
-            $name = $request->input('name');
+            // dd($payload);
             if ($payload['birthday'] != null) {
                 $payload['birthday'] = $this->convertBirthdayDate($payload['birthday']);
             }
@@ -108,21 +107,22 @@ class UserService extends BaseService implements UserServiceInterface
         $birthday = $carbonDate->format('Y-m-d H:i:s');
         return $birthday;
     }
-    
+
     private function paginateSelect()
     {
         return [
             'id',
-            'phone',
-            'email',
-            'address',
             'name',
-            'image',
+            'phone',
+            'province_id',
+            'district_id',
+            'ward_id',
+            'address',
             'birthday',
-            'publish',
-            'vip_member',
-            'publish',
+            'image',
             'point',
+            'vip_member',
+            'account_id'
         ];
     }
 

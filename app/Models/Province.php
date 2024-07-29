@@ -12,15 +12,21 @@ class Province extends Model
 
     protected $fillable = [
         'name',
+        'code'
     ];
 
     protected $table = 'provinces';
-    protected $primaryKey = 'code'; 
+    protected $primaryKey = 'code';
     public $incrementing = false;
 
     public function districts()
     {
         return $this->hasMany(District::class, 'province_code', 'code');
     }
-    
+
+    public function users()
+    {
+        return $this->hasMany(User::class, 'province_id', 'code');
+    }
+
 }

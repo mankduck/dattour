@@ -27,7 +27,7 @@ class DestinationController extends Controller
     }
     public function index(Request $request)
     {
-
+        $this->authorize('modules', 'destination.index');
         $config['model'] = 'Destination';
         $config['seo'] = config('apps.messages.destination');
         $destinations = $this->destinationService->paginate($request);
@@ -36,6 +36,7 @@ class DestinationController extends Controller
 
     public function create()
     {
+        $this->authorize('modules', 'destination.create');
         $provinces = $this->provinceRepository->all();
         $config['model'] = 'Destination';
         $config['seo'] = config('apps.messages.destination');
@@ -54,6 +55,7 @@ class DestinationController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('modules', 'destination.edit');
         $config['model'] = 'Destination';
         $config['seo'] = config('apps.messages.destination');
         $destination = $this->destinationRepository->findById($id);
@@ -72,7 +74,7 @@ class DestinationController extends Controller
 
     public function delete($id)
     {
-        // $this->authorize('modules', 'user.delete');
+        $this->authorize('modules', 'destination.delete');
         $config['seo'] = config('apps.messages.destination');
         $destination = $this->destinationRepository->findById($id);
         return view('backend.tour.destination.delete', compact('destination', 'config', ));

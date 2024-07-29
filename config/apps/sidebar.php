@@ -1,19 +1,34 @@
 <?php
 return [
     'module' => [
+        [
+            'title' => 'QL Tài Khoản',
+            'icon' => 'fa fa-list',
+            'name' => ['account', 'user', 'guide', 'role', 'permission'],
+            'subModule' => [
+                [
+                    'title' => 'QL Tài Khoản',
+                    'route' => 'admin/account/index'
+                ],
+                [
+                    'title' => 'QL Thông Tin KH',
+                    'route' => 'admin/user/index'
+                ],
+                [
+                    'title' => 'QL Thông Tin HDV',
+                    'route' => 'admin/guide/index'
+                ],
+                [
+                    'title' => 'QL Nhóm TK',
+                    'route' => 'admin/role/index'
+                ],
+                [
+                    'title' => 'QL Phân Quyền',
+                    'route' => 'admin/permission/index'
+                ],
+            ]
+        ],
 
-        [
-            'title' => 'QL Khách Hàng',
-            'icon' => 'fa fa-user',
-            'name' => ['user'],
-            'route' => 'admin/user/index',
-        ],
-        [
-            'title' => 'QL Hướng Dẫn Viên',
-            'icon' => 'fa fa-address-card',
-            'name' => ['guide'],
-            'route' => 'admin/guide/index',
-        ],
         [
             'title' => 'QL Tours',
             'icon' => 'fa fa-list',

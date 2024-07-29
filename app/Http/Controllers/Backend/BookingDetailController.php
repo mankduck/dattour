@@ -25,6 +25,7 @@ class BookingDetailController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('modules', 'booking.detail.index');
         $config['model'] = 'BookingDetail';
         $config['seo'] = config('apps.messages.booking');
         $bookings = $this->bookingDetailService->paginate($request);
@@ -34,6 +35,7 @@ class BookingDetailController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('modules', 'booking.detail.edit');
         $config['model'] = 'BookingDetail';
         $config['seo'] = config('apps.messages.booking');
         $booking = $this->bookingDetailRepository->findByCondition([
