@@ -1,5 +1,20 @@
 <?php
 return [
+    'account' => [
+        'index' => [
+            'title' => 'Quản lý tài khoản',
+            'table' => 'Danh sách tài khoản'
+        ],
+        'create' => [
+            'title' => 'Thêm mới tài khoản',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật tài khoản'
+        ],
+        'delete' => [
+            'title' => 'Xóa tài khoản'
+        ]
+    ],
     'guide' => [
         'index' => [
             'title' => 'Quản lý hướng dẫn viên',
@@ -28,6 +43,40 @@ return [
         ],
         'delete' => [
             'title' => 'Xóa khách hàng'
+        ]
+    ],
+    'role' => [
+        'index' => [
+            'title' => 'Quản lý quyền TK',
+            'table' => 'Danh sách quyền TK'
+        ],
+        'create' => [
+            'title' => 'Thêm mới quyền TK',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật quyền TK'
+        ],
+        'delete' => [
+            'title' => 'Xóa quyền TK'
+        ],
+        'permission' => [
+            'title' => 'Cập nhật quyền'
+        ],
+    ],
+
+    'permission' => [
+        'index' => [
+            'title' => 'Quản lý chức năng',
+            'table' => 'Danh sách chức năng'
+        ],
+        'create' => [
+            'title' => 'Thêm mới chức năng',
+        ],
+        'edit' => [
+            'title' => 'Cập nhật chức năng'
+        ],
+        'delete' => [
+            'title' => 'Xóa chức năng'
         ]
     ],
     'tourCategory' => [

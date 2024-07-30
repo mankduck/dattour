@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\Tour\DestinationController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
 use App\Http\Controllers\Backend\Tour\TourController;
+use App\Http\Controllers\Backend\User\AccountController;
 use App\Http\Controllers\Backend\User\GuideController;
 use App\Http\Controllers\Backend\ServiceController;
 // use App\Http\Controllers\Backend\Guide\GuideController;
@@ -20,6 +21,17 @@ use App\Http\Controllers\Backend\SystemController;
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
+    Route::group(['prefix' => 'account'], function () {
+        Route::get('index', [AccountController::class, 'index'])->name('account.index');
+        Route::get('create', [AccountController::class, 'create'])->name('account.create');
+        Route::post('store', [AccountController::class, 'store'])->name('account.store');
+        Route::get('{id}/edit', [AccountController::class, 'edit'])->where(['id' => '[0-9]+'])->name('account.edit');
+        Route::post('{id}/update', [AccountController::class, 'update'])->where(['id' => '[0-9]+'])->name('account.update');
+        Route::get('{id}/delete', [AccountController::class, 'delete'])->where(['id' => '[0-9]+'])->name('account.delete');
+        Route::delete('{id}/destroy', [AccountController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('account.destroy');
+    });
+
 
     Route::group(['prefix' => 'user'], function () {
         Route::get('index', [UserController::class, 'index'])->name('user.index');
@@ -95,6 +107,8 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('index', [SystemController::class, 'index'])->name('system.index');
         Route::post('store', [SystemController::class, 'store'])->name('system.store');
     });
+
+    require __DIR__ . '/permission.php';
 
 });
 

@@ -27,66 +27,63 @@
                     <div class="ibox">
                         <div class="ibox-content">
                             <div class="row mb15">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-row">
                                         <label for="" class="control-label text-left">Tên hướng dẫn viên<span
-                                            class="text-danger">(*)</span></label>
-                                    <input type="text" name="name" value="{{ old('name') }}"
-                                        class="form-control" placeholder="" autocomplete="off">
+                                                class="text-danger">(*)</span></label>
+                                        <input type="text" name="name" value="{{ old('name') }}"
+                                            class="form-control" placeholder="" autocomplete="off">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb15">
+                                <div class="col-lg-6">
+                                    <div class="form-row">
+                                        <label for="" class="control-label text-left">Tài khoản</label>
+                                        <select name="account_id" class="form-control setupSelect2">
+                                            <option value="0">[Chọn tài khoản]</option>
+                                            @if (isset($accounts))
+                                                @foreach ($accounts as $account)
+                                                    <option @if (old('account_id') == $account->id) selected @endif
+                                                        value="{{ $account->id }}">{{ $account->email }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-row">
                                         <label for="" class="control-label text-left">Số điện thoại<span
-                                            class="text-danger">(*)</span></label>
-                                    <input type="text" name="phone" value="{{ old('phone') }}"
-                                        class="form-control" placeholder="" autocomplete="off">
+                                                class="text-danger">(*)</span></label>
+                                        <input type="text" name="phone" value="{{ old('phone') }}"
+                                            class="form-control" placeholder="" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb15">
                                 <div class="col-lg-6">
                                     <div class="form-row">
-                                        <label for="" class="control-label text-left">Mật khẩu<span
-                                            class="text-danger">(*)</span></label>
-                                    <input type="password" name="password" value="{{ old('password') }}"
-                                        class="form-control" placeholder="" autocomplete="off">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-row">
-                                        <label for="" class="control-label text-left">Xác nhận mật khẩu <span
-                                            class="text-danger">(*)</span></label>
-                                    <input type="text" name="re_password" value="{{ old('re_password') }}"
-                                        class="form-control" placeholder="" autocomplete="off">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb15">
-                                <div class="col-lg-6">
-                                    <div class="form-row">
-                                        <label for="" class="control-label text-left">Email<span
-                                            class="text-danger">(*)</span></label>
-                                    <input type="text" name="email" value="{{ old('email') }}"
-                                        class="form-control" placeholder="" autocomplete="off">
+                                        <label for="" class="control-label text-left">Ảnh đại diện </label>
+                                        <input type="text" name="image" value="{{ old('image') }}"
+                                            class="form-control upload-image" placeholder="" autocomplete="off"
+                                            data-upload="Images">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-row">
                                         <label for="" class="control-label text-left">Sinh nhật<span
-                                            class="text-danger">(*)</span></label>
-                                    <input type="date" name="birthday" value="{{ old('birthday') }}"
-                                        class="form-control" placeholder="" autocomplete="off">
+                                                class="text-danger">(*)</span></label>
+                                        <input type="date" name="birthday" value="{{ old('birthday') }}"
+                                            class="form-control" placeholder="" autocomplete="off">
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb15">
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-row">
-                                        <span class="image img-cover image-target"><img
-                                            src="{{ old('image') ? old('image') : 'backend/img/not-found.png' }}"
-                                            alt=""></span>
-                                    <input type="hidden" name="image" value="{{ $model->image ?? '' }}">
+                                        <label for="" class="control-label text-left">Mô tả<span
+                                                class="text-danger">(*)</span></label>
+                                        <textarea name="description" class="custom-area form-control">{{ old('description') }}</textarea>
                                     </div>
                                 </div>
                             </div>

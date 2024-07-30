@@ -33,6 +33,7 @@ class TourController extends Controller
     }
     public function index(Request $request)
     {
+        $this->authorize('modules', 'tour.index');
         $config['model'] = 'Tour';
         $config['seo'] = config('apps.messages.tour');
         $tours = $this->tourService->paginate($request);
@@ -41,6 +42,7 @@ class TourController extends Controller
 
     public function create()
     {
+        $this->authorize('modules', 'tour.create');
         $config['model'] = 'Tour';
         $config['seo'] = config('apps.messages.tour');
         $destinations = $this->destinationRepository->all();
@@ -61,6 +63,7 @@ class TourController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('modules', 'tour.edit');
         $config['model'] = 'tour';
         $config['seo'] = config('apps.messages.tour');
         $tour = $this->tourRepository->findByCondition([
@@ -84,7 +87,7 @@ class TourController extends Controller
 
     public function delete($id)
     {
-        // $this->authorize('modules', 'user.delete');
+        $this->authorize('modules', 'tour.delete');
         $config['seo'] = config('apps.messages.tour');
         $tour = $this->tourRepository->findById($id);
         return view('backend.tour.tour.delete', compact('tour', 'config', ));

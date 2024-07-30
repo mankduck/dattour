@@ -13,13 +13,13 @@
                         <!-- search box -->
                         <div class="search-box search-bar d-none d-lg-block">
                             <div class="header-search">
-                                <span class="pera">Destination, attraction</span>
+                                <span class="pera">Nhập để tìm kiếm</span>
                                 <div class="search-icon">
                                     <i class="ri-search-line"></i>
                                 </div>
-                                <kbd class="light-text">
+                                {{-- <kbd class="light-text">
                                     <abbr title="Ctrl">Ctrl +</abbr> k
-                                </kbd>
+                                </kbd> --}}
                             </div>
                         </div>
                         <!-- Mobile Device Seach & Theme Mode -->
@@ -48,7 +48,7 @@
                             <div class="info">
                                 <p class="pera">Gửi Email Bất Cứ Lúc Nào</p>
                                 <h4 class="title">
-                                    <a href="javascript:void(0)">travelloo@gmail.com</a>
+                                    <a href="javascript:void(0)">adphgmnhd@gmail.com</a>
                                 </h4>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <div class="info">
                                 <p class="pera">Gọi Bất Cứ Lúc Nào</p>
                                 <h4 class="title">
-                                    <a href="javascript:void(0)">+84 385.906.406</a>
+                                    <a href="javascript:void(0)">+84 0921044773</a>
                                 </h4>
                             </div>
                         </div>

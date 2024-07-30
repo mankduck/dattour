@@ -22,26 +22,18 @@ class UpdateUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email'         => 'required|email',
-            'name'          => 'required|string|regex:/^[\pL\s]+$/u',
-            'phone'         => 'required|integer|min:10|max:10',
-            'publish'       => 'required',
+            'name' => 'required|string|regex:/^[\pL\s]+$/u',
+            'phone' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'email.required'                => 'Bạn chưa nhập vào ô email.',
-            'email.email'                   => 'Vui lòng nhập đúng định dạng email.',
-            'name.required'                 => 'Bạn chưa nhập vào ô họ tên.',
-            'name.string'                   => 'Họ tên phải là 1 chuỗi kí tự.',
-            'name.regex'                    => 'Họ tên chỉ được nhập kí tự chữ cái.',
-            'phone.required'                => 'Bạn chưa nhập vào ô số điện thoại.',
-            'phone.integer'                 => 'Số điện thoại chỉ được nhập số.',
-            'phone.min'                     => 'Số điện thoại phải tối thiếu 10 số.',
-            'phone.max'                     => 'Số điện thoại phải tối đa 10 số.',
-            'publish.required'              => 'Bạn chưa chọn tình trạng.',
+            'name.required' => 'Bạn chưa nhập vào ô họ tên.',
+            'name.string' => 'Họ tên phải là 1 chuỗi kí tự.',
+            'name.regex' => 'Họ tên chỉ được nhập kí tự chữ cái.',
+            'phone.required' => 'Bạn chưa nhập vào ô số điện thoại.',
         ];
     }
 }

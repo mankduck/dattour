@@ -4,6 +4,7 @@ namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,17 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->registerPolicies();
+        Gate::define('modules', function ($account, $permisionName) {
+            // dd($account->role);
+            if ($account->publish == 0)
+                return false;
+            $role = $account->role;
+            $permission = $role->permissions;
+            if ($permission->contains('slug', $permisionName)) {
+                return true;
+            }
+            return false;
+        });
     }
 }

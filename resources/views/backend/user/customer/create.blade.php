@@ -29,10 +29,16 @@
                             <div class="row mb15">
                                 <div class="col-lg-6">
                                     <div class="form-row">
-                                        <label for="" class="control-label text-left">Email <span
-                                                class="text-danger">(*)</span></label>
-                                        <input type="text" name="email" value="{{ old('email') }}"
-                                            class="form-control" placeholder="" autocomplete="off">
+                                        <label for="" class="control-label text-left">Tài khoản</label>
+                                        <select name="account_id" class="form-control setupSelect2">
+                                            <option value="0">[Chọn tài khoản]</option>
+                                            @if (isset($accounts))
+                                                @foreach ($accounts as $account)
+                                                    <option @if (old('account_id') == $account->role) selected @endif
+                                                        value="{{ $account->id }}">{{ $account->email }}</option>
+                                                @endforeach
+                                            @endif
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -62,24 +68,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mb15">
-                                <div class="col-lg-6">
-                                    <div class="form-row">
-                                        <label for="" class="control-label text-left">Mật khẩu <span
-                                                class="text-danger">(*)</span></label>
-                                        <input type="text" name="password" value="{{ old('password') }}"
-                                            class="form-control" placeholder="" autocomplete="off">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-row">
-                                        <label for="" class="control-label text-left">Xác nhận mật khẩu <span
-                                                class="text-danger">(*)</span></label>
-                                        <input type="text" name="re_password" value="{{ old('re_password') }}"
-                                            class="form-control" placeholder="" autocomplete="off">
-                                    </div>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -143,19 +132,19 @@
                                 <div class="col-lg-6">
                                     <div class="form-row">
                                         <label for="" class="control-label text-left">Số điện thoại <span
-                                        class="text-danger">(*)</span></label>
+                                                class="text-danger">(*)</span></label>
                                         <input type="text" name="phone"
                                             value="{{ old('phone', $user->phone ?? '') }}" class="form-control"
                                             placeholder="" autocomplete="off">
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
-                                <div class="form-row">
-                                        <label for="" class="control-label text-left">Chọn Tình Trạng <span
-                                        class="text-danger">(*)</span></label>
-                                        <select name="publish" class="form-control setupSelect2" id="">
-                                            @foreach (config('apps.setup.publish') as $key => $val)
-                                                <option {{ $key == old('publish') }} value="{{ $key }}">
+                                    <div class="form-row">
+                                        <label for="" class="control-label text-left">Chọn Vip Member <span
+                                                class="text-danger">(*)</span></label>
+                                        <select name="vip_member" class="form-control setupSelect2" id="">
+                                            @foreach (config('apps.setup.vip') as $key => $val)
+                                                <option {{ $key == old('vip_member') }} value="{{ $key }}">
                                                     {{ $val }}</option>
                                             @endforeach
                                         </select>

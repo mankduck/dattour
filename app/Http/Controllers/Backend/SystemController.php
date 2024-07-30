@@ -26,6 +26,7 @@ class SystemController extends Controller
 
     public function index()
     {
+        $this->authorize('modules', 'system.index');
         $config['model'] = 'System';
         $config['seo'] = config('apps.messages.system');
         $systems = convert_array($this->systemRepository->all(), 'keyword', 'content');

@@ -23,6 +23,7 @@ class TourCategoryController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('modules', 'tour.category.index');
         $config['model'] = 'TourCategory';
         $config['seo'] = config('apps.messages.tourCategory');
         $tourCategories = $this->tourCategoryService->paginate($request);
@@ -31,6 +32,7 @@ class TourCategoryController extends Controller
 
     public function create()
     {
+        $this->authorize('modules', 'tour.category.create');
         $config['model'] = 'TourCategory';
         $config['seo'] = config('apps.messages.tourCategory');
         return view('backend.tour.category.create', compact('config'));
@@ -48,6 +50,7 @@ class TourCategoryController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('modules', 'tour.category.edit');
         $config['model'] = 'TourCategory';
         $config['seo'] = config('apps.messages.tourCategory');
         $tourCategory = $this->tourCategoryRepository->findById($id);
@@ -65,7 +68,7 @@ class TourCategoryController extends Controller
 
     public function delete($id)
     {
-        // $this->authorize('modules', 'user.delete');
+        $this->authorize('modules', 'tour.category.delete');
         $config['seo'] = config('apps.messages.tourCategory');
         $tourCategory = $this->tourCategoryRepository->findById($id);
         return view('backend.tour.category.delete', compact('tourCategory', 'config', ));

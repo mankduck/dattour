@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Guide;
+namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateGuideRequest extends FormRequest
+class StoreGuideRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,25 +21,20 @@ class UpdateGuideRequest extends FormRequest
      */
     public function rules(): array
     {
-
-
         return [
-            'name'      => 'required',
-            'email'     => 'required|email',
-            'phone'     => 'required',
-            'password'  => 'required',
-            'birthday'  => 'required'
+            'name' => 'required',
+            'phone' => 'required',
+            'birthday' => 'required',
         ];
     }
 
     public function messages(): array
     {
         return [
-            'name.required'     => 'Bạn chưa nhập vào tên hdv.',
-            'email.required'    => 'Bạn chưa nhập vào ô email.',
-            'phone.required'    => 'Bạn chưa nhập vào ô phone.',
-            'password.required' => 'Bạn chưa nhập vào ô password.',
+            'name.required' => 'Bạn chưa nhập vào tên hdv.',
+            'phone.required' => 'Bạn chưa nhập vào ô phone.',
             'birthday.required' => 'Bạn chưa nhập vào ô birthday.',
+
         ];
     }
 }

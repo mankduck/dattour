@@ -23,6 +23,7 @@ class ServiceController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('modules', 'service.index');
         $config['model'] = 'Service';
         $config['seo'] = config('apps.messages.service');
         $service = $this->serviceService->paginate($request);
@@ -31,6 +32,7 @@ class ServiceController extends Controller
 
     public function create()
     {
+        $this->authorize('modules', 'service.create');
         $config['model'] = 'Service';
         $config['seo'] = config('apps.messages.service');
         return view('backend.service.create', compact('config'));
@@ -48,6 +50,7 @@ class ServiceController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('modules', 'service.edit');
         $config['model'] = 'Service';
         $config['seo'] = config('apps.messages.service');
         $service = $this->serviceRepository->findById($id);
@@ -66,7 +69,7 @@ class ServiceController extends Controller
 
     public function delete($id)
     {
-        // $this->authorize('modules', 'user.delete');
+        $this->authorize('modules', 'service.delete');
         $config['seo'] = config('apps.messages.service');
         $service = $this->serviceRepository->findById($id);
         return view('backend.service.delete', compact('service', 'config', ));
