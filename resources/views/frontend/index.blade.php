@@ -15,12 +15,11 @@
                 <div class="col-xl-12">
                     <div class="hero-caption-three position-relative z-3">
                         <h4 class="title wow fadeInUp" data-wow-delay="0.0s">
-                            Plan tours to dream locations in just a click!
+                            Lên kế hoạch cho chuyến du lịch chỉ bằng 1 cú click!
                         </h4>
                         <p class="pera wow fadeInUp" data-wow-delay="0.1s">
-                            Travel is a transformative and enriching experience that
-                            allows individuals to explore new destinations, cultures, and
-                            landscapes
+                            Du lịch là một trải nghiệm biến đổi và phong phú cho phép các cá nhân khám phá những điểm đến,
+                            nền văn hóa và cảnh quan mới
                         </p>
                     </div>
                     <div class="hero-footer position-relative z-3 wow fadeInUp" data-wow-delay="0.3s">
@@ -40,7 +39,7 @@
                             <div class="happy-user-count">
                                 <p class="user-count">5k+</p>
                             </div>
-                            <p class="pera">Happy Customer</p>
+                            <p class="pera">Khách hàng</p>
                             <span class="wave-emoji">
                                 <img src="/frontend/images/icon/hand.png" alt="travello">
                             </span>
@@ -53,7 +52,7 @@
     <!--/ End-of Hero-->
 
     <!-- Plan area S t a r t -->
-    <section class="plan-area-three">
+    {{-- <section class="plan-area-three">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -82,7 +81,7 @@
                             <div class="tab-content" id="tourTab">
                                 <div class="tab-pane fade show active" id="tour" role="tabpanel"
                                     aria-labelledby="tour-tab">
-                                    {{-- <div class="d-flex gap-16 flex-wrap mb-26">
+                                    <div class="d-flex gap-16 flex-wrap mb-26">
                                         <label class="one-way-label">
                                             <input class="one-way-input" type="radio" name="radio">
                                             <span class="circle"></span>
@@ -93,7 +92,7 @@
                                             <span class="circle"></span>
                                             <span class="radio-text">Round Trip</span>
                                         </label>
-                                    </div> --}}
+                                    </div>
                                     <div class="row g-4 justify-content-end">
                                         <div class="col-xl-5 col-lg-12">
                                             <div class="destination-flex">
@@ -238,7 +237,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <!--/ End-of Plan-->
 
     <!-- Special area S t a r t -->
@@ -1544,8 +1543,7 @@
                                 </div>
                                 <div class="rattings">
                                     <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
-                                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i
-                                        class="ri-star-fill"></i>
+                                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
                                 </div>
                                 <div class="testimonial-body">
                                     <p class="pera line-clamp-3">
@@ -1574,8 +1572,7 @@
                                 </div>
                                 <div class="rattings">
                                     <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
-                                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i
-                                        class="ri-star-fill"></i>
+                                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
                                 </div>
                                 <div class="testimonial-body">
                                     <p class="pera line-clamp-3">
@@ -1604,8 +1601,7 @@
                                 </div>
                                 <div class="rattings">
                                     <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i
-                                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i
-                                        class="ri-star-fill"></i>
+                                        class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
                                 </div>
                                 <div class="testimonial-body">
                                     <p class="pera line-clamp-3">
@@ -1699,8 +1695,7 @@
                 <div class="col-xl-4 col-lg-4 col-sm-6">
                     <article class="news-card-two">
                         <figure class="news-banner-two imgEffect">
-                            <a href="news-details.html"><img src="/frontend/images/news/news-4.png"
-                                    alt="travello"></a>
+                            <a href="news-details.html"><img src="/frontend/images/news/news-4.png" alt="travello"></a>
                         </figure>
                         <div class="news-content">
                             <div class="heading">
@@ -1736,8 +1731,7 @@
                 <div class="col-xl-4 col-lg-4 col-sm-6">
                     <article class="news-card-two">
                         <figure class="news-banner-two imgEffect">
-                            <a href="news-details.html"><img src="/frontend/images/news/news-5.png"
-                                    alt="travello"></a>
+                            <a href="news-details.html"><img src="/frontend/images/news/news-5.png" alt="travello"></a>
                         </figure>
                         <div class="news-content">
                             <div class="heading">
@@ -1773,8 +1767,7 @@
                 <div class="col-xl-4 col-lg-4 col-sm-6">
                     <article class="news-card-two">
                         <figure class="news-banner-two imgEffect">
-                            <a href="news-details.html"><img src="/frontend/images/news/news-6.png"
-                                    alt="travello"></a>
+                            <a href="news-details.html"><img src="/frontend/images/news/news-6.png" alt="travello"></a>
                         </figure>
                         <div class="news-content">
                             <div class="heading">

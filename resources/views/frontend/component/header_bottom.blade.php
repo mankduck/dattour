@@ -18,7 +18,7 @@
                                         <a href="{{ route('home.destination') }}" class="single">Điểm đến</a>
                                     </li>
                                     <li class="single-list">
-                                        <a href="javascript:void(0)" class="single">Tour Package <i
+                                        <a href="javascript:void(0)" class="single">Gói Tour <i
                                                 class="ri-arrow-down-s-line"></i></a>
                                         <ul class="submenu">
                                             @foreach ($tourCategories as $tourCategory)
@@ -29,7 +29,7 @@
                                             @endforeach
                                         </ul>
                                     </li>
-                                    <li class="single-list">
+                                    {{-- <li class="single-list">
                                         <a href="javascript:void(0)" class="single">Pages <i
                                                 class="ri-arrow-down-s-line"></i></a>
                                         <ul class="submenu">
@@ -83,12 +83,12 @@
                                                 <a href="terms-condition.html" class="single">terms-condition</a>
                                             </li>
                                         </ul>
+                                    </li> --}}
+                                    <li class="single-list">
+                                        <a href="news.html" class="single">Tin tức</a>
                                     </li>
                                     <li class="single-list">
-                                        <a href="news.html" class="single">News</a>
-                                    </li>
-                                    <li class="single-list">
-                                        <a href="contact.html" class="single">Contact</a>
+                                        <a href="contact.html" class="single">Liên hệ</a>
                                     </li>
                                     <li class="d-block d-lg-none">
                                         <div class="header-right">
@@ -123,14 +123,13 @@
                                         @if (Auth::check())
                                             <ul class="listing" id="navigation">
                                                 <li class="single-list">
-                                                    <a href="javascript:void(0)"
-                                                        class="single">{{ Auth::user()->name }}
+                                                    <a href="javascript:void(0)" class="single">{{ Auth::user()->name }}
                                                         <i class="ri-arrow-down-s-line"></i></a>
                                                     <ul class="submenu">
                                                         <li class="single-list">
                                                             <a href="" class="single">Quản lý tài khoản</a>
-                                                            <a href="{{ route('order_tracking') }}"
-                                                                class="single">Theo dõi đơn hàng</a>
+                                                            <a href="{{ route('order_tracking') }}" class="single">Theo
+                                                                dõi đơn hàng</a>
                                                             <a href="{{ route('logout') }}" class="single">Đăng
                                                                 xuất</a>
                                                         </li>
