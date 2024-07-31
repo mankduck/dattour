@@ -11,11 +11,20 @@ class Destination extends Model
     use HasFactory, QueryScopes;
 
     protected $fillable = [
+        'id',
         'province_id',
         'district_id',
         'ward_id',
         'name',
-        'description'
+        'image',
+        'description',
+        'content',
+        'album',
+        'slug',
+    ];
+
+    protected $casts = [
+        'album' => 'array',
     ];
 
     protected $table = 'destination';

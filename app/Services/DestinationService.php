@@ -101,7 +101,11 @@ class DestinationService extends BaseService implements DestinationServiceInterf
             'district_id',
             'ward_id',
             'name',
-            'description'
+            'image',
+            'description',
+            'content',
+            'album',
+            'slug',
         ];
     }
 
