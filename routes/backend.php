@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\Backend\BookingDetailController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\PostController;
 use App\Http\Controllers\Backend\Tour\DestinationController;
 use App\Http\Controllers\Backend\Tour\TourCategoryController;
 use App\Http\Controllers\Backend\Tour\TourController;
@@ -102,6 +103,18 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('{id}/delete', [BookingDetailController::class, 'delete'])->where(['id' => '[0-9]+'])->name('booking.delete');
         Route::delete('{id}/destroy', [BookingDetailController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('booking.destroy');
     });
+
+    Route::group(['prefix' => 'post'], function () {
+        Route::get('index', [PostController::class, 'index'])->name('post.index');
+        Route::get('create', [PostController::class, 'create'])->name('post.create');
+        Route::post('store', [PostController::class, 'store'])->name('post.store');
+        Route::get('{id}/edit', [PostController::class, 'edit'])->where(['id' => '[0-9]+'])->name('post.edit');
+        Route::post('{id}/update', [PostController::class, 'update'])->where(['id' => '[0-9]+'])->name('post.update');
+        Route::get('{id}/delete', [PostController::class, 'delete'])->where(['id' => '[0-9]+'])->name('post.delete');
+        Route::delete('{id}/destroy', [PostController::class, 'destroy'])->where(['id' => '[0-9]+'])->name('post.destroy');
+    });
+
+
 
     Route::group(['prefix' => 'system'], function () {
         Route::get('index', [SystemController::class, 'index'])->name('system.index');
