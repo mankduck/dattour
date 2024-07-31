@@ -4,6 +4,7 @@
             <th>
                 <input type="checkbox" value="" id="checkAll" class="input-checkbox">
             </th>
+            <th>Hình ảnh</th>
             <th>Tên</th>
             <th class="text-center" style="width: 300px">Địa chỉ</th>
             <th>Mô tả</th>
@@ -16,6 +17,9 @@
                 <tr>
                     <td>
                         <input type="checkbox" value="{{ $destination->id }}" class="input-checkbox checkBoxItem">
+                    </td>
+                    <td>
+                        <img src="{{ $destination->image }}" alt="" width="50px">
                     </td>
                     <td>
                         {{ $destination->name }}

@@ -11,7 +11,7 @@
                     <div class="panel-head">
                         <div class="panel-title">Thông tin chung</div>
                         <div class="panel-description">
-                            <p>Bạn đang muốn xóa loại tour có tên là: <span
+                            <p>Bạn đang muốn xóa loại địa danh có tên là: <span
                                     class="text-danger">{{ $destination->name }}</span></p>
                             <p>Lưu ý: Không thể khôi phục sau khi xóa. Hãy chắc chắn bạn muốn thực hiện chức
                                 năng này</p>
