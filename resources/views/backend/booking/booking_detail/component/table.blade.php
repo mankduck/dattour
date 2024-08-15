@@ -33,7 +33,7 @@
                     </td>
 
                     <td>
-                        {{ $booking->tour_date }}
+                        {{ convert_date($booking->tour_date) }}
                     </td>
 
                     <td>

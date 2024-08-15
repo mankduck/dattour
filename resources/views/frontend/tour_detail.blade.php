@@ -70,27 +70,26 @@
                                 <!-- / About tour -->
 
                                 <!-- Tour Include Exclude -->
-                                {{-- <div class="tour-include-exclude radius-6">
+                                <div class="tour-include-exclude radius-6">
                                     <div class="includ-exclude-point">
-                                        <h4 class="title">Included</h4>
-
+                                        <h4 class="title">GIÁ TOUR KHÔNG BAO GỒM:</h4>
                                         <ul class="expect-list">
-                                            @foreach ($tour->tour_dates as $date)
-                                                <li class="list">Ngày khởi hành: {{ $date->time }}</li>
-                                            @endforeach
+                                            <li class="list">Đồ uống trong bữa ăn</li>
+                                            <li class="list">Chưa bao gồm thuế VAT 10%</li>
+                                            <li class="list">Chi phí không được đề cập trong chương trình</li>
                                         </ul>
                                     </div>
                                     <div class="divider"></div>
                                     <div class="includ-exclude-point">
-                                        <h4 class="title">Dịch Vụ</h4>
-
+                                        <h4 class="title">GIÁ TOUR TRẺ EM:</h4>
                                         <ul class="expect-list">
-                                            @foreach ($tour->services as $service)
-                                                <li class="list">{{ $service->name }}</li>
-                                            @endforeach
+                                            <li class="list">Trẻ em từ 05 tuổi trở xuống miễn phí, bố mẹ tự lo cho bé</li>
+                                            <li class="list">Trẻ em từ 05 đến dưới 12 tuổi tính 50% giá tour người lớn
+                                            </li>
+                                            <li class="list">Trẻ em từ đủ 12 tuổi trở lên tính như người lớn</li>
                                         </ul>
                                     </div>
-                                </div> --}}
+                                </div>
                                 <!-- / Tour Include Exclude -->
 
                                 <!-- Tour Plan accordion-->

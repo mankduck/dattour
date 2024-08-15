@@ -7,7 +7,6 @@
             <th>Hình ảnh</th>
             <th>Tên</th>
             <th class="text-center" style="width: 300px">Địa chỉ</th>
-            <th>Mô tả</th>
             <th class="text-center">Tùy chọn </th>
         </tr>
     </thead>
@@ -27,9 +26,6 @@
                     <td  class="text-center">
                         {{ $destination->ward->name }}, {{ $destination->district->name }},
                         {{ $destination->province->name }}
-                    </td>
-                    <td>
-                        {{ $destination->description }}
                     </td>
                     <td class="text-center">
                         <a href="{{ route('destination.edit', $destination->id) }}" class="btn btn-success"><i

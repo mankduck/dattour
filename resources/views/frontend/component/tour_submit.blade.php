@@ -10,7 +10,10 @@
             </div>
         @endif
         <h4 class="heading-card">Nhập thông tin đặt tour</h4>
-        <p class="pera text-danger mb-20">Lưu ý: Trẻ em dưới 12 tuổi được giảm 20%</p>
+        <p class="pera text-danger mb-20">
+            Trẻ em dưới 12 tuổi được giảm 50%
+            <br>
+            Trẻ em dưới 5 tuổi không cần thêm số lượng
         <form method="post" action="{{ route('frontend.booking') }}" class="contact-form">
             @csrf
             <div class="row g-4">

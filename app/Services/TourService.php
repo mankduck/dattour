@@ -73,7 +73,7 @@ class TourService extends BaseService implements TourServiceInterface
                 $tour->tour_dates()->each(function ($variant) {
                     $variant->delete();
                 });
-                $this->createTourService($tour, $request);
+                // $this->createTourService($tour, $request);
                 if ($request->input('time')) {
                     $this->createTourDate($tour, $request);
                 }

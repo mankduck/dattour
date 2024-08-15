@@ -27,11 +27,20 @@
                     <div class="ibox">
                         <div class="ibox-content">
                             <div class="row mb15">
-                                <div class="col-lg-12">
+                                <div class="col-lg-6">
                                     <div class="form-row">
                                         <label for="" class="control-label text-left">Email <span
                                                 class="text-danger">(*)</span></label>
                                         <input type="text" name="email" value="{{ old('email') }}"
+                                            class="form-control" placeholder="" autocomplete="off">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6">
+                                    <div class="form-row">
+                                        <label for="" class="control-label text-left">Tên người dùng <span
+                                                class="text-danger">(*)</span></label>
+                                        <input type="text" name="username" value="{{ old('username') }}"
                                             class="form-control" placeholder="" autocomplete="off">
                                     </div>
                                 </div>

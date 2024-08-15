@@ -338,7 +338,7 @@
             let totalChil = 0;
 
             if (children != 0) {
-                totalChil = (price * 0.8) * children
+                totalChil = (price * 0.5) * children
             }
             console.log(price);
 

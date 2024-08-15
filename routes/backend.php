@@ -15,13 +15,10 @@ use App\Http\Controllers\Backend\User\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-/* ROUTE AJAX */
-use App\Http\Controllers\Ajax\DashboardController as AjaxDashboardController;
-use App\Http\Controllers\Ajax\LocationController;
 use App\Http\Controllers\Backend\SystemController;
 
 Route::group(['prefix' => 'admin'], function () {
-    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
     Route::group(['prefix' => 'account'], function () {
         Route::get('index', [AccountController::class, 'index'])->name('account.index');
@@ -124,9 +121,3 @@ Route::group(['prefix' => 'admin'], function () {
     require __DIR__ . '/permission.php';
 
 });
-
-//ROUTES AJAX
-
-Route::get('ajax/location/getLocation', [LocationController::class, 'getLocation'])->name('ajax.location.index');
-Route::post('ajax/dashboard/changeStatus', [AjaxDashboardController::class, 'changeStatus'])->name('ajax.dashboard.changeStatus');
-Route::post('ajax/dashboard/changeStatusAll', [AjaxDashboardController::class, 'changeStatusAll'])->name('ajax.dashboard.changeStatusAll');

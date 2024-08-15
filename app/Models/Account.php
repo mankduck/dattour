@@ -16,6 +16,7 @@ class Account extends Authenticatable
         'email',
         'password',
         'role_id',
+        'username',
         'publish',
         'email_verification_token',
         'email_verified_at',

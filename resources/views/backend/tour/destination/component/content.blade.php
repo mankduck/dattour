@@ -21,7 +21,7 @@
                 <div class="uk-flex uk-flex-middle uk-flex-space-between">
                     <label for="" class="control-label text-left">Nội Dung <span class="text-danger">(*)</span> </label>
                 </div>
-                <textarea name="content" class="form-control ck-editor" placeholder="" autocomplete="off" id="ckContent" data-height="500" {{ isset($disabled) ? 'disabled' : '' }}>{{ old('description', $destination->description ?? '') }}</textarea>
+                <textarea name="content" class="form-control ck-editor" placeholder="" autocomplete="off" id="ckContent" data-height="500" {{ isset($disabled) ? 'disabled' : '' }}>{{ old('content', $destination->content ?? '') }}</textarea>
             </div>
         </div>
     </div>

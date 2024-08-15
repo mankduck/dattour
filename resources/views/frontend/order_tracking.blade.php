@@ -36,13 +36,17 @@
                                 <div class="tab-pane fade show active" id="tour" role="tabpanel"
                                     aria-labelledby="tour-tab">
                                     <!-- Contact area S t a r t -->
-                                    @foreach ($bookings as $booking)
-                                        @if ($booking->status !== 3)
-                                            @include('frontend.component.order_detail')
-                                        @else
-                                            <h4 class="contact-heading">Hiện tại không có tour nào đang hoạt động!</h4>
-                                        @endif
-                                    @endforeach
+                                    @if (isset($bookings) && count($bookings))
+                                        @foreach ($bookings as $booking)
+                                            @if ($booking->status !== 3)
+                                                @include('frontend.component.order_detail')
+                                            @else
+                                                <h4 class="contact-heading">Hiện tại không có tour nào đang hoạt động!</h4>
+                                            @endif
+                                        @endforeach
+                                    @else
+                                        <h4 class="contact-heading">Hiện tại không có tour nào đang hoạt động!</h4>
+                                    @endif
                                     <!--/ End-of Contact-->
                                 </div>
                                 <div class="tab-pane fade" id="book" role="tabpanel" aria-labelledby="book-tab">

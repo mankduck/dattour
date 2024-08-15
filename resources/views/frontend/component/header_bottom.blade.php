@@ -94,14 +94,18 @@
                                         <div class="header-right">
                                             <div class="sign-btn">
                                                 @if (Auth::check())
+                                                    @php
+                                                        $username = Auth::user()->username;
+                                                    @endphp
                                                     <ul class="listing" id="navigation">
                                                         <li class="single-list">
                                                             <a href="javascript:void(0)"
-                                                                class="single">{{ Auth::user()->name }}
+                                                                class="single">{{ $username }}
                                                                 <i class="ri-arrow-down-s-line"></i></a>
                                                             <ul class="submenu">
                                                                 <li class="single-list">
-                                                                    <a href="" class="single">Quản lý tài
+                                                                    <a href="{{ route('manager_account', $username) }}"
+                                                                        class="single">Quản lý tài
                                                                         khoản</a>
                                                                     <a href="{{ route('order_tracking') }}"
                                                                         class="single">Theo dõi đơn hàng</a>
@@ -123,11 +127,12 @@
                                         @if (Auth::check())
                                             <ul class="listing" id="navigation">
                                                 <li class="single-list">
-                                                    <a href="javascript:void(0)" class="single">{{ Auth::user()->name }}
+                                                    <a href="javascript:void(0)" class="single">{{ $username }}
                                                         <i class="ri-arrow-down-s-line"></i></a>
                                                     <ul class="submenu">
                                                         <li class="single-list">
-                                                            <a href="" class="single">Quản lý tài khoản</a>
+                                                            <a href="{{ route('manager_account', $username) }}"
+                                                                class="single">Quản lý tài khoản</a>
                                                             <a href="{{ route('order_tracking') }}" class="single">Theo
                                                                 dõi đơn hàng</a>
                                                             <a href="{{ route('logout') }}" class="single">Đăng

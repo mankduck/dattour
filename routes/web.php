@@ -8,7 +8,9 @@ use App\Http\Controllers\Frontend\TourCategoryController as FrontendTourCategory
 use App\Http\Controllers\Frontend\BookingDetailController as FrontendBookingDetail;
 
 
-
+/* ROUTE AJAX */
+use App\Http\Controllers\Ajax\DashboardController as AjaxDashboardController;
+use App\Http\Controllers\Ajax\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,4 +73,13 @@ Route::group(['prefix' => 'auth'], function () {
         echo "Login";
     });
 });
+
+
+
+// //ROUTES AJAX
+
+Route::get('ajax/location/getLocation', [LocationController::class, 'getLocation'])->name('ajax.location.index');
+Route::post('ajax/dashboard/changeStatus', [AjaxDashboardController::class, 'changeStatus'])->name('ajax.dashboard.changeStatus');
+Route::post('ajax/dashboard/changeStatusAll', [AjaxDashboardController::class, 'changeStatusAll'])->name('ajax.dashboard.changeStatusAll');
+
 

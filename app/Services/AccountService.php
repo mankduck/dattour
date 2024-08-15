@@ -23,13 +23,15 @@ class AccountService extends BaseService implements AccountServiceInterface
 
     public function paginate($request)
     {
-
-        $condition['keyword'] = addslashes($request->input('keyword'));
-        $condition['publish'] = $request->integer('publish');
+        $condition = ['username', 'email'];
+        $keyword = addslashes($request->input('keyword'));
+        $publish = $request->integer('publish');
         $perPage = ($request->integer('perpage') > 0) ? $request->integer('perpage') : 9;
-        $accounts = $this->accountRepository->pagination(
+        $accounts = $this->accountRepository->paginationAccount(
             $this->paginateSelect(),
             $condition,
+            $publish,
+            $keyword,
             $perPage,
             ['path' => 'admin/account/index'],
         );
@@ -98,7 +100,8 @@ class AccountService extends BaseService implements AccountServiceInterface
             'id',
             'email',
             'publish',
-            'role_id'
+            'role_id',
+            'username'
         ];
     }
 }

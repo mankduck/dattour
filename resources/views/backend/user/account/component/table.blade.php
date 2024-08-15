@@ -5,6 +5,7 @@
                 <input type="checkbox" value="" id="checkAll" class="input-checkbox">
             </th>
             <th>Email</th>
+            <th>Tên người dùng</th>
             <th>Role</th>
             <th class="text-center">Trạng thái</th>
             <th class="text-center">Tùy chọn</th>
@@ -19,6 +20,9 @@
                     </td>
                     <td>
                         {{ $account->email }}
+                    </td>
+                    <td>
+                        {{ $account->username }}
                     </td>
                     <td>
                         {{$account->role->name}}

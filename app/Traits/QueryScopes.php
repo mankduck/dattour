@@ -20,6 +20,18 @@ trait QueryScopes
         return $query;
     }
 
+    public function scopeManyKeyword($query, $conditions, $keyword)
+    {
+
+        if (!empty($keyword) && !empty($conditions)) {
+            foreach ($conditions as $column) {
+                $query->orWhere($column, 'LIKE', '%' . $keyword . '%');
+            }
+        }
+        return $query;
+    }
+
+
     public function scopePublish($query, $publish)
     {
         if (!empty($publish)) {

@@ -32,14 +32,10 @@
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-row">
-                                        <label for="" class="control-label text-left">Role <span
+                                        <label for="" class="control-label text-left">Tên người dùng <span
                                                 class="text-danger">(*)</span></label>
-                                        @foreach (config('apps.setup.role') as $key => $val)
-                                            @php
-                                                $key === $account->role ? ($value = $val) : '';
-                                            @endphp
-                                        @endforeach
-                                        <input type="text" name="role" value="{{ $value }}"
+                                                
+                                        <input type="text" name="role" value="{{ $account->username }}"
                                             class="form-control" placeholder="" autocomplete="off" readonly>
                                     </div>
                                 </div>
